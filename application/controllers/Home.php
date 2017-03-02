@@ -2,24 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+	// hàm khởi tạo để load tất cả module cần thiết
+	public function __construct() {
+		parent::__construct();
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->load->view('home');
+		$this->load->helper("url");
+		$this->load->library("template_front_end");
+		$this->template_front_end->setLayout("template_front_end/main"); // load file layout chính (view/template_front_end/main)
+	}
+
+	public function index() {
+		$this->template_front_end->view("front_end/home");
 	}
 }
