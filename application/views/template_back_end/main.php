@@ -7,7 +7,11 @@
 	<script src="<?php echo base_url() ?>public/bootstrap-3.3.7/js/bootstrap.js"></script>
 	<link href="<?php echo base_url() ?>public/admin/css/jquery.dataTables.min.css" rel="stylesheet">
 	<script src="<?php echo base_url() ?>public/admin/js/jquery.dataTables.min.js"></script>
-
+	<style type="text/css">
+		body{
+			overflow: auto;
+		}
+	</style>
 </head>
 	<body>
 	<div class="container">

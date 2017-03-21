@@ -5,6 +5,8 @@ class Home extends CI_Controller {
 	// hàm khởi tạo để load tất cả module cần thiết
 	public function __construct() {
 		parent::__construct();
+		//load file
+		$this->load->Model("MBacSi");
 
 		$this->load->helper("url");
 		$this->load->library("template_back_end");
@@ -12,6 +14,8 @@ class Home extends CI_Controller {
 	}
 
 	public function index() {
-		$this->template_back_end->view("back_end/home");
+
+		$data['dsBacSi'] = $this->MBacSi->listall();
+		$this->template_back_end->view("back_end/home", $data);
 	}
 }

@@ -9,9 +9,15 @@ class template_back_end {
 	var $layout;
 
 	function template_back_end($layout = "") {
-
+		// load thư viện
 		$this->obj = &get_instance();
 		$this->layout = $layout;
+
+		$this->obj->load->helper(array('form', 'url'));
+		$this->obj->load->library('form_validation');
+		$this->obj->load->library('pagination');
+		$this->obj->load->helper("url");
+
 	}
 
 	function setLayout($layout) {
