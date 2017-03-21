@@ -1,37 +1,3 @@
-<style type="text/css">
-
-
-  #exTab1 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-  }
-
-  #exTab2 h3 {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-  }
-
-  /* remove border radius for the tab */
-
-  #exTab1 .nav-pills > li > a {
-  border-radius: 0;
-  }
-
-  /* change border radius for the tab , apply corners on top*/
-
-  #exTab3 .nav-pills > li > a {
-  border-radius: 4px 4px 0 0 ;
-  }
-
-  #exTab3 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-  }
-
-</style>
 
 <script type="text/javascript">
   var dataSet = [];
@@ -43,12 +9,11 @@ foreach ($dsBacSi as $bacsi) {
       var mRecord = [];
       mRecord.push('<?php echo ($bacsi['Id']) ?>');
       mRecord.push('<?php echo ($bacsi['Ten']) ?>');
+      mRecord.push('<?php echo ($bacsi['HinhAnh']) ?>');
       mRecord.push('<?php echo ($bacsi['Email']) ?>');
       mRecord.push('<?php echo ($bacsi['DonViCongTac']) ?>');
       mRecord.push('<?php echo ($bacsi['DienThoai']) ?>');
-      mRecord.push('<?php echo ($bacsi['DonViCongTac']) ?>');
-      mRecord.push('<?php echo ($bacsi['DienThoai']) ?>');
-      mRecord.push('<?php echo ($bacsi['HinhAnh']) ?>');
+      
       // push vao dataset
       dataSet.push(mRecord);
 
@@ -62,17 +27,17 @@ foreach ($dsBacSi as $bacsi) {
   <ul class="nav nav-tabs">
     <li class="active">
 
-      <a  href="#1" data-toggle="tab">DANH SÁCH CHƯA DUYỆT</a>
+      <a  href="#1" data-toggle="tab" class="classNormal">DANH SÁCH CHƯA DUYỆT</a>
     </li>
     <li>
-      <a href="#2" data-toggle="tab">DANH SÁCH ĐÃ DUYỆT</a>
+      <a href="#2" data-toggle="tab" class="classGreen">DANH SÁCH ĐÃ DUYỆT</a>
     </li>
     <li>
-      <a href="#3" data-toggle="tab">DANH SÁCH KHÔNG DUYỆT</a>
+      <a href="#3" data-toggle="tab" class="classBlue">DANH SÁCH KHÔNG DUYỆT</a>
     </li>
 
     <li>
-      <a href="#3" data-toggle="tab">DANH SÁCH TREO</a>
+      <a href="#3" data-toggle="tab" class="classRed">DANH SÁCH TREO</a>
     </li>
 
   </ul>
@@ -104,35 +69,63 @@ foreach ($dsBacSi as $bacsi) {
     var table = $('#example').DataTable({
       data: dataSet,
       columns: [
-          { title: "Name" },
-          { title: "Position" },
-          { title: "Office" },
-          { title: "Extn." },
-          { title: "Start date" },
-          { title: "Salary" },
-          { title: "Tool"},
+          { title: "Id" },
+          { title: "Họ và tên" },
+          { title: "Hình" },
+          { title: "Email" },
+          { title: "Đơn vị" },
+          { title: "Điện thoại"}, 
           { title: "Tool"}
       ],
 
       columnDefs: [{ // Money columns
-            "targets": 6,
-            "render": function( data, type, row ) {
-                return "<img src='../../images/'"+data +">"
-            }
-      }, { // Money columns
-            "targets": 7,
+            "targets": 2,
             "render": function( data, type, row ) {
                 var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data +"''>";
                 return valueReturn;
           }
+      }, { // Money columns
+            "targets": -1,
+            "render": function( data, type, row ) {
+              var valueReturn = "<a class= 'classGreen'> Duyệt</a> | <a class= 'classBlue'>Không duyệt</a> | <a class= 'classRed'>Treo</a>";
+              valueReturn += "<div class='inputKhongDuyet' style='padding-top: 5px; display:none'> <input  placeHolder='Lý do không duyệt' /></div>";
+              valueReturn += "<div class='inputKhongTreo' style='padding-top: 5px; display:none'> <input  placeHolder='Lý do treo' /></div>";
+              
+                return  valueReturn;
+            }
       }]
 
     });
 
-    $('#example tbody').on( 'click', 'button', function () {
-        var data = table.row( $(this).parents('tr') ).data();
-        alert( data[0] +"'s salary is: "+ data[ 5 ] );
-    } );
+    $('#example tbody').on( 'click', 'a', function () {
+
+      $('.inputKhongDuyet').fadeOut(200);
+      $('.inputKhongTreo').fadeOut(200);
+
+      var className = this.attributes.class.value;
+
+      var data = table.row( $(this).parents('tr') ).data();
+        //alert( data[0] +"'s salary is: "+ data[ 5 ] );
+      var tagets_1 = $(this).parents('tr').find(".inputKhongDuyet");
+      var tagets_2 = $(this).parents('tr').find(".inputKhongTreo");
+
+      switch (className) { 
+        case 'classGreen':
+          tagets_1.fadeOut(200);
+          tagets_2.fadeOut(200);
+          break;
+        case 'classBlue':
+          tagets_1.fadeIn(200);
+          tagets_2.fadeOut(200);
+
+          break;
+        case 'classRed':
+          tagets_1.fadeOut(200);
+          tagets_2.fadeIn(200);
+          break;
+      }
+
+    });
 
     $('[data-toggle="tooltip"]').tooltip();
 

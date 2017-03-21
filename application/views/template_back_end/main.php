@@ -6,6 +6,7 @@
 	<script src="<?php echo base_url() ?>public/jquery-3.2.1.js"></script>
 	<script src="<?php echo base_url() ?>public/bootstrap-3.3.7/js/bootstrap.js"></script>
 	<link href="<?php echo base_url() ?>public/admin/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link href="<?php echo base_url() ?>public/admin/css/css.css" rel="stylesheet">
 	<script src="<?php echo base_url() ?>public/admin/js/jquery.dataTables.min.js"></script>
 	<style type="text/css">
 		body{
