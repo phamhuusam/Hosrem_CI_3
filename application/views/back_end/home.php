@@ -117,12 +117,13 @@ foreach ($dsBacSi as $bacsi) {
       columnDefs: [{ // Money columns
             "targets": 6,
             "render": function( data, type, row ) {
-                return "<img src='images/'" + data +">"
+                return "<img src='../../images/'"+data +">"
             }
       }, { // Money columns
             "targets": 7,
             "render": function( data, type, row ) {
-                return "<img src='images/'" + data +">"
+                var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data +"''>";
+                return valueReturn;
           }
       }]
 
