@@ -18,4 +18,16 @@ class Home extends CI_Controller {
 		$data['dsBacSi'] = $this->MBacSi->listall();
 		$this->template_back_end->view("back_end/home", $data);
 	}
+
+	public function onUpdateRecord() {
+		if (isset($_POST["data"])) {
+			$data = $_POST["data"];
+			$myArray = json_decode($data);
+
+			echo $myArray->Id;
+			echo $myArray->Value;
+		}
+		// trả về dữ liệu bằng echo không bằng return;
+		//echo "true";
+	}
 }

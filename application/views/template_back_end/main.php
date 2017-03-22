@@ -8,6 +8,8 @@
 	<link href="<?php echo base_url() ?>public/admin/css/jquery.dataTables.min.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>public/admin/css/css.css" rel="stylesheet">
 	<script src="<?php echo base_url() ?>public/admin/js/jquery.dataTables.min.js"></script>
+	<script src="<?php echo base_url() ?>public/admin/js/js_Parent.js"></script>
+
 	<style type="text/css">
 		body{
 			overflow: auto;
@@ -42,5 +44,9 @@
 		</nav>
   		<?php echo $content_for_layout ?>
   		</div>
+
+  		<script type="text/javascript">
+  			var base_url_original = "<?php echo base_url() ?>";
+  		</script>
 	</body>
 </html>
