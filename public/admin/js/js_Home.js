@@ -43,7 +43,7 @@ $(document).ready(function() {
   });
 
   //xử lý show textbox
-  $('#example tbody').on('click', 'a', function() {
+  $('#table_ChuaDuyet tbody').on('click', 'a', function() {
     $('.panel_KhongDuyet').fadeOut(200);
     $('.panel_Treo').fadeOut(200);
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
   });
   // xử lý button submit
 
-  $('#example tbody').on('click', 'button', function() {
+  $('#table_ChuaDuyet tbody').on('click', 'button', function() {
     var className = this.attributes.class.value;
     var data = table_ChuaDuyet.row($(this).parents('tr')).data();
     //alert(data[0]);
