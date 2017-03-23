@@ -3,18 +3,17 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="<?php echo base_url() ?>public/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url() ?>public/css/mystyle.css">	
 	<script src="<?php echo base_url() ?>public/jquery-3.2.1.js"></script>
 	<script src="<?php echo base_url() ?>public/bootstrap-3.3.7/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/slick/slick-theme.css">	
+	
 </head>
 <html lang="en">
-<body>
-		Đây là master page
 
-
-`wdfert
-<br/>
-
-
-		<?php echo $content_for_layout ?>
+	<body>		
+		<?php echo $content_for_layout ?>		
 	</body>
+
 </html>
