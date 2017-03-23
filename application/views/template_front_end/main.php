@@ -7,7 +7,14 @@
 	<script src="<?php echo base_url() ?>public/bootstrap-3.3.7/js/bootstrap.js"></script>
 </head>
 <html lang="en">
-	<body>
+<body>
+		Đây là master page
+
+
+`wdfert
+<br/>
+
+
 		<?php echo $content_for_layout ?>
 	</body>
 </html>

@@ -26,6 +26,7 @@ class Home extends CI_Controller {
 
 			echo $myArray->Id;
 			echo $myArray->Value;
+
 		}
 		// trả về dữ liệu bằng echo không bằng return;
 		//echo "true";

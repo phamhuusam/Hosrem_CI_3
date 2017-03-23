@@ -17,4 +17,8 @@ class Home extends CI_Controller {
 	public function dangky(){
 		$this->template_front_end->view("front_end/dangky");
 	}
+	public function abc() {
+		$this->template_front_end->view("front_end/abc");
+	}
+
 }
