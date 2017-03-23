@@ -19,7 +19,7 @@ class Danhba extends CI_Controller {
 	}
 
 	public function danhba(){
-		$this->template_front_end->view("front_end/danhba");
+		$this->template_front_end->view("front_end/danhsach");
 	}	
 
 
