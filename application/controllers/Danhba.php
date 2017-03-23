@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Danhba extends CI_Controller {
 	// hàm khởi tạo để load tất cả module cần thiết
 	public function __construct() {
 		parent::__construct();
