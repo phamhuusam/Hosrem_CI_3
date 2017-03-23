@@ -1,14 +1,18 @@
 //khởi tạo
-var dataSet = [];
+var dataSet_ChuaDuyet = [];
+var mRecord_DaDuyet = [];
+var mRecord_KhongDuyet= [];
+var mRecord_Treo= [];
 
 var _global = {
   _pageAjax : 'index.php/admin/home'
 };
 
 
+// Đang mần cho thằng chưa duyệt
 $(document).ready(function() {
-  var table = $('#example').DataTable({
-    data: dataSet,
+  var table_ChuaDuyet = $('#table_ChuaDuyet').DataTable({
+    data: dataSet_ChuaDuyet,
     columns: [{
       title: "Id"
     }, {
@@ -49,7 +53,7 @@ $(document).ready(function() {
     $('.panel_Treo').fadeOut(200);
 
     var className = this.attributes.class.value;
-    var data = table.row($(this).parents('tr')).data();
+    var data = table_ChuaDuyet.row($(this).parents('tr')).data();
     //alert( data[0] +"'s salary is: "+ data[ 5 ] );
     var tagets_1 = $(this).parents('tr').find(".panel_KhongDuyet"); // panel 1
     var tagets_2 = $(this).parents('tr').find(".panel_Treo"); // panel 2
@@ -74,7 +78,7 @@ $(document).ready(function() {
 
   $('#example tbody').on('click', 'button', function() {
     var className = this.attributes.class.value;
-    var data = table.row($(this).parents('tr')).data();
+    var data = table_ChuaDuyet.row($(this).parents('tr')).data();
     //alert(data[0]);
     var className = this.attributes.class.value;
     var valueText = $(this).parent('div').find('input').val();

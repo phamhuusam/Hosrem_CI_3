@@ -1,23 +1,86 @@
 
 <script src="<?php echo base_url() ?>public/admin/js/js_Home.js"></script>
 <?php
-foreach ($dsBacSi as $bacsi) {
+foreach ($dsBacSi_ChuaDuyet as $bacsi) {
 	?>
   <script type="text/javascript">
-      var mRecord = [];
-      mRecord.push('<?php echo ($bacsi['Id']) ?>');
-      mRecord.push('<?php echo ($bacsi['Ten']) ?>');
-      mRecord.push('<?php echo ($bacsi['HinhAnh']) ?>');
-      mRecord.push('<?php echo ($bacsi['Email']) ?>');
-      mRecord.push('<?php echo ($bacsi['DonViCongTac']) ?>');
-      mRecord.push('<?php echo ($bacsi['DienThoai']) ?>');
+      var mRecord_ChuaDuyet = [];
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['Id']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['Ten']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['HinhAnh']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['Email']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['DonViCongTac']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['DienThoai']) ?>');
       // push vao dataset
-      dataSet.push(mRecord);
+      dataSet_ChuaDuyet.push(mRecord_ChuaDuyet);
 
   </script>
 <?php
 }
 ?>
+
+
+<?php
+foreach ($dsBacSi_DaDuyet as $bacsi) {
+  ?>
+  <script type="text/javascript">
+      var mRecord_DaDuyet = [];
+      mRecord_DaDuyet.push('<?php echo ($bacsi['Id']) ?>');
+      mRecord_DaDuyet.push('<?php echo ($bacsi['Ten']) ?>');
+      mRecord_DaDuyet.push('<?php echo ($bacsi['HinhAnh']) ?>');
+      mRecord_DaDuyet.push('<?php echo ($bacsi['Email']) ?>');
+      mRecord_DaDuyet.push('<?php echo ($bacsi['DonViCongTac']) ?>');
+      mRecord_DaDuyet.push('<?php echo ($bacsi['DienThoai']) ?>');
+      // push vao dataset
+      dataSet_DaDuyet.push(mRecord_DaDuyet);
+
+  </script>
+<?php
+}
+?>
+
+
+<?php
+foreach ($dsBacSi_KhongDuyet as $bacsi) {
+  ?>
+  <script type="text/javascript">
+      var mRecord_KhongDuyet = [];
+      mRecord_KhongDuyet.push('<?php echo ($bacsi['Id']) ?>');
+      mRecord_KhongDuyet.push('<?php echo ($bacsi['Ten']) ?>');
+      mRecord_KhongDuyet.push('<?php echo ($bacsi['HinhAnh']) ?>');
+      mRecord_KhongDuyet.push('<?php echo ($bacsi['Email']) ?>');
+      mRecord_KhongDuyet.push('<?php echo ($bacsi['DonViCongTac']) ?>');
+      mRecord_KhongDuyet.push('<?php echo ($bacsi['DienThoai']) ?>');
+      // push vao dataset
+      dataSet_KhongDuyet.push(mRecord_KhongDuyet);
+
+  </script>
+<?php
+}
+?>
+
+
+
+<?php
+foreach ($dsBacSi_Treo as $bacsi) {
+  ?>
+  <script type="text/javascript">
+      var mRecord_Treo = [];
+      mRecord_Treo.push('<?php echo ($bacsi['Id']) ?>');
+      mRecord_Treo.push('<?php echo ($bacsi['Ten']) ?>');
+      mRecord_Treo.push('<?php echo ($bacsi['HinhAnh']) ?>');
+      mRecord_Treo.push('<?php echo ($bacsi['Email']) ?>');
+      mRecord_Treo.push('<?php echo ($bacsi['DonViCongTac']) ?>');
+      mRecord_Treo.push('<?php echo ($bacsi['DienThoai']) ?>');
+      // push vao dataset
+      dataSet_Treo.push(mRecord_Treo);
+
+  </script>
+<?php
+}
+?>
+
+
 
 <h2>Danh sách</h2>
 <div id="exTab2">
@@ -41,17 +104,18 @@ foreach ($dsBacSi as $bacsi) {
   <div class="tab-content">
     <div class="tab-pane active" id="1">
       <br/>
-      <table id="example" class="display" width="100%"></table>
+      <table id="table_ChuaDuyet" class="display" width="100%"></table>
     </div>
     <div class="tab-pane" id="2">
-      đây là tab 2
+      <br/>
+      <table id="table_DaDuyet" class="display" width="100%"></table>
     </div>
     <div class="tab-pane" id="3">
-      đây là tab3
+      <table id="table_KhongDuyet" class="display" width="100%"></table>
     </div>
 
     <div class="tab-pane" id="4">
-      đây là tab4
+       <table id="table_Treo" class="display" width="100%"></table>
     </div>
 
   </div>
