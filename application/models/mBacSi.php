@@ -5,8 +5,8 @@ class MBacSi extends CI_Model {
 	}
 
 	public function listall() {
-
-		$this->db->select('*');
+		$this->db->flush_cache();
+		$this->db->select('bacsi.*');
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
@@ -15,7 +15,7 @@ class MBacSi extends CI_Model {
 	}
 
 	public function listall_ChuaDuyet() {
-
+		
 		$this->db->select('bacsi.*'); // chỉ lấy trong bảng bacsi
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');

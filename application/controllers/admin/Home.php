@@ -19,6 +19,8 @@ class Home extends CI_Controller {
 		$data['dsBacSi_DaDuyet'] = $this->MBacSi->listall_DaDuyet();
 		$data['dsBacSi_Treo'] = $this->MBacSi->listall_Treo();
 		$data['dsBacSi_KhongDuyet'] = $this->MBacSi->listall_KhongDuyet();
+
+		
 		$this->template_back_end->view("back_end/home", $data);
 	}
 

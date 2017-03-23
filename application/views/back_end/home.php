@@ -1,5 +1,11 @@
 
-<script src="<?php echo base_url() ?>public/admin/js/js_Home.js"></script>
+<script type="text/javascript">
+  var dataSet_ChuaDuyet = [];
+  var dataSet_DaDuyet = [];
+  var dataSet_KhongDuyet= [];
+  var dataSet_Treo= [];
+
+</script>
 <?php
 foreach ($dsBacSi_ChuaDuyet as $bacsi) {
 	?>
@@ -122,3 +128,5 @@ foreach ($dsBacSi_Treo as $bacsi) {
 </div>
 
 
+
+<script src="<?php echo base_url() ?>public/admin/js/js_Home.js"></script>

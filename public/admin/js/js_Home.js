@@ -1,15 +1,10 @@
-//khởi tạo
-var dataSet_ChuaDuyet = [];
-var mRecord_DaDuyet = [];
-var mRecord_KhongDuyet= [];
-var mRecord_Treo= [];
+
 
 var _global = {
   _pageAjax : 'index.php/admin/home'
 };
 
 
-// Đang mần cho thằng chưa duyệt
 $(document).ready(function() {
   var table_ChuaDuyet = $('#table_ChuaDuyet').DataTable({
     data: dataSet_ChuaDuyet,
@@ -104,12 +99,47 @@ $(document).ready(function() {
                
           break;
         case 'button_Treo':
-
+          alert("la quá");
           break;
       }
     }
   });
+});
 
-  // tooltip
-  $('[data-toggle="tooltip"]').tooltip();
+
+
+
+
+$(document).ready(function() {
+  var table_ChuaDuyet = $('#table_DaDuyet').DataTable({
+    data: dataSet_DaDuyet,
+    columns: [{
+      title: "Id"
+    }, {
+      title: "Họ và tên"
+    }, {
+      title: "Hình"
+    }, {
+      title: "Email"
+    }, {
+      title: "Đơn vị"
+    }, {
+      title: "Điện thoại"
+    }, {
+      title: "Tool"
+    }],
+    columnDefs: [{ // Money columns
+      "targets": 2,
+      "render": function(data, type, row) {
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data + "''>";
+        return valueReturn;
+      }
+    }, { // Money columns
+      "targets": -1,
+      "render": function(data, type, row) {
+        var valueReturn = "Sâm đẹp troai";
+        return valueReturn;
+      }
+    }]
+  });
 });
