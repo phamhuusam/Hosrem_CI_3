@@ -6,9 +6,22 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>public/css/mystyle.css">	
 	<script src="<?php echo base_url() ?>public/jquery-3.2.1.js"></script>
 	<script src="<?php echo base_url() ?>public/bootstrap-3.3.7/js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/slick/slick.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/slick/slick-theme.css">	
-	
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/slick/slick-theme.css">
+	<script src="<?php echo base_url() ?>public/js/tinymce/tinymce.min.js  "></script>  
+	 <script>
+		tinymce.init({
+			selector: '.danhba_textarea',
+			height: 150,
+			menubar: false,
+			plugins: [
+			'searchreplace visualblocks code fullscreen',
+			'insertdatetime media table contextmenu paste code textcolor'
+		  ],
+			toolbar: 'undo redo | styleselect | bold italic | forecolor backcolor emoticons | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+			content_css: '//www.tinymce.com/css/codepen.min.css'
+		});	  
+	  </script>
 </head>
 <html lang="en">
 

@@ -1,3 +1,6 @@
+div.clear{
+	clear:both;
+}
 #danhbawrapper{
 	width:980px;
 	margin:0 auto;
@@ -466,7 +469,12 @@ span.title:hover{
 /*end of slider*/
 
 /*form dang ky*/
-
+.lbl_danhba{
+	color:#636363;
+	font-size:12px;
+	padding:3px;
+	margin-top:3px;
+}
 .dangky_title{
 	background:#24a2ed;
 	font-size:18px;
@@ -513,8 +521,32 @@ span.title:hover{
 .div_hoten{
 	float:left;
 	width: 295px;
+	margin-right:10px;
 }
 .div_donvicongtac{
-	width: 295px;
+	width: 425px;
+}
+.div_quatrinhhoctap{
+	width:100%;
+}
+.div_hoten input, .div_donvicongtac input,.div_quatrinhhoctap textarea,.div_kinhnghiemcongtac textarea,.div_hoatdongchuyennganh textarea{
+	max-width:100%;
+	width:100%;
+	background:#d9d9d9;
+	color:#000;
+	padding:5px;
+	border-radius:5px;
+}
+.input_dangky{
+	background: #1392df;
+	color:#fff;
+	padding:10px;
+	margin:10px 0px 5px 5px;
+}
+.float-left{
+	float:left;
+}
+.float-right{
+	float:right;
 }
 /*end of form dang ky*/
