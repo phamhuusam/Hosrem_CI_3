@@ -7,7 +7,6 @@ class Home extends CI_Controller {
 		parent::__construct();
 		//load file
 		$this->load->Model("MBacSi");
-
 		$this->load->helper("url");
 		$this->load->library("template_back_end");
 		$this->template_back_end->setLayout("template_back_end/main"); // load file layout chính (view/template_front_end/main)
@@ -20,7 +19,6 @@ class Home extends CI_Controller {
 		$data['dsBacSi_Treo'] = $this->MBacSi->listall_Treo();
 		$data['dsBacSi_KhongDuyet'] = $this->MBacSi->listall_KhongDuyet();
 
-		
 		$this->template_back_end->view("back_end/home", $data);
 	}
 
@@ -29,11 +27,29 @@ class Home extends CI_Controller {
 			$data = $_POST["data"];
 			$myArray = json_decode($data);
 
-			echo $myArray->Id;
-			echo $myArray->Value;
+			$data = array(
+				'bacsi' => $myArray->Id,
+				'FlagHienTai' => 1,
+				'NgayCapNhatTinhTrang' => date('Y-m-d'),
+				'NguoiDuyet' => 1,
+				'LyDoTuChoi' => $myArray->Value,
+			);
 
+			switch ($myArray->Status) {
+			case 'DaDuyet':
+				$data['TinhTrang'] = 1;
+				break;
+			case 'Treo':
+				$data['TinhTrang'] = 3;
+				break;
+			case 'KhongDuyet':
+				$data['TinhTrang'] = 4;
+				break;
+			}
+
+			$this->MBacSi->UpdateTinhTrang($data);
 		}
 		// trả về dữ liệu bằng echo không bằng return;
-		//echo "true";
+		echo "true";
 	}
 }

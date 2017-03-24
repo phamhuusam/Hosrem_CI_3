@@ -1,7 +1,5 @@
-
-
 var _global = {
-  _pageAjax : 'index.php/admin/home'
+  _pageAjax: 'index.php/admin/home'
 };
 
 
@@ -57,6 +55,24 @@ $(document).ready(function() {
       case 'classGreen':
         tagets_1.fadeOut(200);
         tagets_2.fadeOut(200);
+        // update tại đây
+        var mData = {
+          'Id': data[0],
+          'Value': '',
+          'Status': 'DaDuyet'
+        };
+        onUpdateRecord(mData, function(result, flag) {
+          if (flag) {
+            console.log(result);
+                //location.reload();
+                alert_CapNhatThanhCong();
+
+          } else {
+            console.log(result);
+                alert_CapNhatThatBai();
+          }
+        }, _global);
+
         break;
       case 'classBlue':
         tagets_1.fadeIn(200);
@@ -82,37 +98,109 @@ $(document).ready(function() {
     } else {
       switch (className) {
         case 'button_Khongduyet':
-              var mData = {
-                'Id' : data[0],
-                'Value': valueText
-              };
-              onUpdateRecord( mData, function(result, flag){
-                  if(flag) {
-                    console.log(result);
-                    //alert_CapNhatThanhCong();
-                  }
-                  else {
-                    console.log(result);
-                    //alert_CapNhatThatBai();
-                  }
-              }, _global);
-               
+          var mData = {
+            'Id': data[0],
+            'Value': valueText,
+            'Status': 'KhongDuyet'
+          };
           break;
         case 'button_Treo':
-          alert("la quá");
+          var mData = {
+            'Id': data[0],
+            'Value': valueText,
+            'Status': 'Treo'
+          };
           break;
       }
+
+      onUpdateRecord(mData, function(result, flag) {
+        if (flag) {
+          console.log(result);
+              //location.reload();
+              alert_CapNhatThanhCong();
+        } else {
+          console.log(result);
+              alert_CapNhatThatBai();
+        }
+      }, _global);
     }
   });
 });
 
-
-
-
-
 $(document).ready(function() {
   var table_ChuaDuyet = $('#table_DaDuyet').DataTable({
     data: dataSet_DaDuyet,
+    columns: [{
+      title: "Id"
+    }, {
+      title: "Họ và tên"
+    }, {
+      title: "Hình"
+    }, {
+      title: "Email"
+    }, {
+      title: "Đơn vị"
+    }, {
+      title: "Điện thoại"
+    }, {
+      title: "Tool"
+    }],
+    columnDefs: [{ // Money columns
+      "targets": 2,
+      "render": function(data, type, row) {
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data + "''>";
+        return valueReturn;
+      }
+    }, { // Money columns
+      "targets": -1,
+      "render": function(data, type, row) {
+        var valueReturn = "Sâm đẹp troai";
+        return valueReturn;
+      }
+    }]
+  });
+});
+
+// không duyệt
+$(document).ready(function() {
+  var table_KhongDuyet = $('#table_KhongDuyet').DataTable({
+    data: dataSet_KhongDuyet,
+    columns: [{
+      title: "Id"
+    }, {
+      title: "Họ và tên"
+    }, {
+      title: "Hình"
+    }, {
+      title: "Email"
+    }, {
+      title: "Đơn vị"
+    }, {
+      title: "Điện thoại"
+    }, {
+      title: "Tool"
+    }],
+    columnDefs: [{ // Money columns
+      "targets": 2,
+      "render": function(data, type, row) {
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data + "''>";
+        return valueReturn;
+      }
+    }, { // Money columns
+      "targets": -1,
+      "render": function(data, type, row) {
+        var valueReturn = "Sâm đẹp troai";
+        return valueReturn;
+      }
+    }]
+  });
+});
+
+// Treo
+
+$(document).ready(function() {
+  var table_Treo = $('#table_Treo').DataTable({
+    data: dataSet_Treo,
     columns: [{
       title: "Id"
     }, {

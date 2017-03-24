@@ -28,7 +28,7 @@ foreach ($dsBacSi_ChuaDuyet as $bacsi) {
 
 <?php
 foreach ($dsBacSi_DaDuyet as $bacsi) {
-  ?>
+	?>
   <script type="text/javascript">
       var mRecord_DaDuyet = [];
       mRecord_DaDuyet.push('<?php echo ($bacsi['Id']) ?>');
@@ -47,8 +47,9 @@ foreach ($dsBacSi_DaDuyet as $bacsi) {
 
 
 <?php
+
 foreach ($dsBacSi_KhongDuyet as $bacsi) {
-  ?>
+	?>
   <script type="text/javascript">
       var mRecord_KhongDuyet = [];
       mRecord_KhongDuyet.push('<?php echo ($bacsi['Id']) ?>');
@@ -62,14 +63,13 @@ foreach ($dsBacSi_KhongDuyet as $bacsi) {
 
   </script>
 <?php
+
 }
 ?>
 
-
-
 <?php
 foreach ($dsBacSi_Treo as $bacsi) {
-  ?>
+	?>
   <script type="text/javascript">
       var mRecord_Treo = [];
       mRecord_Treo.push('<?php echo ($bacsi['Id']) ?>');
@@ -102,7 +102,7 @@ foreach ($dsBacSi_Treo as $bacsi) {
     </li>
 
     <li>
-      <a href="#3" data-toggle="tab" class="classRed">DANH SÁCH TREO</a>
+      <a href="#4" data-toggle="tab" class="classRed">DANH SÁCH TREO</a>
     </li>
 
   </ul>
@@ -121,12 +121,10 @@ foreach ($dsBacSi_Treo as $bacsi) {
     </div>
 
     <div class="tab-pane" id="4">
+
        <table id="table_Treo" class="display" width="100%"></table>
     </div>
 
   </div>
 </div>
-
-
-
 <script src="<?php echo base_url() ?>public/admin/js/js_Home.js"></script>

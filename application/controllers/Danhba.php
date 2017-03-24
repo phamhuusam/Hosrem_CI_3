@@ -14,14 +14,11 @@ class Danhba extends CI_Controller {
 	public function index() {
 		$this->template_front_end->view("front_end/home");
 	}
-	public function dangky(){
+	public function dangky() {
 		$this->template_front_end->view("front_end/dangky");
 	}
 
-	public function danhsach(){
+	public function danhsach() {
 		$this->template_front_end->view("front_end/danhsach");
-	}	
-
-
-
+	}
 }

@@ -15,7 +15,7 @@ class MBacSi extends CI_Model {
 	}
 
 	public function listall_ChuaDuyet() {
-		
+
 		$this->db->select('bacsi.*'); // chỉ lấy trong bảng bacsi
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
@@ -56,11 +56,21 @@ class MBacSi extends CI_Model {
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
-		$this->db->where('tinhtrang.id', 0);
-		$this->db->where('FlagHienTai', 4);
+		$this->db->where('tinhtrang.id', 4);
+		$this->db->where('FlagHienTai', 1);
 		$query = $this->db->get();
 		return $query->result_array();
 	}
 
+	public function UpdateTinhTrang($data) {
+		//trước khi upate data vào set cờ = flase cho tình trạng trước
+		$data_1 = array(
+			'FlagHienTai' => 0,
+		);
+		$this->db->where('bacsi', $data['bacsi']);
+		$this->db->update('chitietbacsi_tinhtrang', $data_1);
+		//sau đó insert record mới vào.  với cái cờ check là hiện tại
+		$this->db->insert('chitietbacsi_tinhtrang', $data);
+	}
 }
 ?>
