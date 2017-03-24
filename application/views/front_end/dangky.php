@@ -1,7 +1,3 @@
-<<<<<<< .mine
-||||||| .r16
-
-Updating...=======
 <div id="danhbawrapper">
 	<h2 class="dangky_title">ĐĂNG KÝ THÔNG TIN</h2>
 	<div class="left">
@@ -22,4 +18,4 @@ Updating...=======
 			<input type="text" name="donvicongtac" class="txt_donvicongtac" />
 		</div>
 	</div>
-</div>>>>>>>> .r28
+</div>
