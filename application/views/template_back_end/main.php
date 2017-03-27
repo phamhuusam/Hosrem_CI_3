@@ -36,8 +36,8 @@
 		        <li><a href="#">Page 3</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
-		        <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li> -!-->
-		        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+		        <li><a href="<?php echo base_url() ?>admin/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a>
+		        <li><a href="<?php echo base_url() ?>admin/login/do_logout"><span class="glyphicon glyphicon-user"></span> Đăng xuất</a></li></li>
 		      </ul>
 		    </div>
 		  </div>
