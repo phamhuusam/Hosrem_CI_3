@@ -31,7 +31,7 @@ class Home extends CI_Controller {
 				'bacsi' => $myArray->Id,
 				'FlagHienTai' => 1,
 				'NgayCapNhatTinhTrang' => date('Y-m-d'),
-				'NguoiDuyet' => 1,
+				'NguoiDuyet' => $this->session->userdata('users_Id'),
 				'LyDoTuChoi' => $myArray->Value,
 			);
 

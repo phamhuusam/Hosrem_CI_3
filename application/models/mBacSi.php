@@ -6,9 +6,10 @@ class MBacSi extends CI_Model {
 
 	public function listall() {
 		$this->db->flush_cache();
-		$this->db->select('bacsi.*');
+		$this->db->select('bacsi.*,NgayCapNhatTinhTrang, LyDoTuChoi, FullName');
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$query = $this->db->get();
 		return $query->result_array();
@@ -16,10 +17,12 @@ class MBacSi extends CI_Model {
 
 	public function listall_ChuaDuyet() {
 
-		$this->db->select('bacsi.*'); // chỉ lấy trong bảng bacsi
+		$this->db->select('bacsi.*,NgayCapNhatTinhTrang, LyDoTuChoi, FullName'); // chỉ lấy trong bảng bacsi
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
+
 		$this->db->where('tinhtrang.id', 2);
 		$this->db->where('FlagHienTai', 1); // chỉ lấy quá trình hiện tại (không lấy quá trình ở quá khứ)
 		$query = $this->db->get();
@@ -28,9 +31,10 @@ class MBacSi extends CI_Model {
 
 	public function listall_DaDuyet() {
 
-		$this->db->select('bacsi.*');
+		$this->db->select('bacsi.*,NgayCapNhatTinhTrang, LyDoTuChoi, FullName');
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$this->db->where('tinhtrang.id', 1);
 		$this->db->where('FlagHienTai', 1);
@@ -40,9 +44,10 @@ class MBacSi extends CI_Model {
 
 	public function listall_Treo() {
 
-		$this->db->select('bacsi.*');
+		$this->db->select('bacsi.*,NgayCapNhatTinhTrang, LyDoTuChoi, FullName');
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$this->db->where('tinhtrang.id', 3);
 		$this->db->where('FlagHienTai', 1);
@@ -52,9 +57,10 @@ class MBacSi extends CI_Model {
 
 	public function listall_KhongDuyet() {
 
-		$this->db->select('bacsi.*');
+		$this->db->select('bacsi.*,NgayCapNhatTinhTrang, LyDoTuChoi, FullName');
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$this->db->where('tinhtrang.id', 4);
 		$this->db->where('FlagHienTai', 1);

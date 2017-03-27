@@ -19,13 +19,13 @@ $(document).ready(function() {
     }, {
       title: "Điện thoại"
     }, {
-      title: "Tool"
+      title: "Trạng thái"
     }],
 
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data + "''>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='"  + base_url_original +  "public/images/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
@@ -63,8 +63,7 @@ $(document).ready(function() {
         };
         onUpdateRecord(mData, function(result, flag) {
           if (flag) {
-            console.log(result);
-                //location.reload();
+                location.reload();
                 alert_CapNhatThanhCong();
 
           } else {
@@ -115,8 +114,7 @@ $(document).ready(function() {
 
       onUpdateRecord(mData, function(result, flag) {
         if (flag) {
-          console.log(result);
-              //location.reload();
+              location.reload();
               alert_CapNhatThanhCong();
         } else {
           console.log(result);
@@ -125,6 +123,8 @@ $(document).ready(function() {
       }, _global);
     }
   });
+
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 $(document).ready(function() {
@@ -148,17 +148,23 @@ $(document).ready(function() {
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data + "''>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='"   + base_url_original  + "public/images/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
       "targets": -1,
       "render": function(data, type, row) {
-        var valueReturn = "Sâm đẹp troai";
+        var MnguoiDuyet = row[6];
+        var valueReturn = "";
+        valueReturn += "<a href='#'><span style='color: green; font-size: 18px' class='glyphicon glyphicon-user' data-toggle='tooltip' title='Duyệt bởi " + MnguoiDuyet +"'></span></a>";
+        //valueReturn += "<a href='#' data-toggle='tooltip' title='Hooray!'>Hover over me</a>";
+        valueReturn +=  " | " + row[7];
         return valueReturn;
       }
     }]
   });
+
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 // không duyệt
@@ -183,7 +189,7 @@ $(document).ready(function() {
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data + "''>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='"   + base_url_original  + "public/images/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
@@ -194,6 +200,8 @@ $(document).ready(function() {
       }
     }]
   });
+
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 // Treo
@@ -219,15 +227,17 @@ $(document).ready(function() {
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='../../public/images/" + data + "''>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='"   + base_url_original  + "public/images/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
       "targets": -1,
       "render": function(data, type, row) {
-        var valueReturn = "Sâm đẹp troai";
+        var valueReturn = "Đang xử lý"
         return valueReturn;
       }
     }]
   });
+
+  $('[data-toggle="tooltip"]').tooltip();
 });
