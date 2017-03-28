@@ -51,3 +51,15 @@ a {
   background-color: #428bca;
   padding : 5px 15px;
   }
+
+  .tooltipRow {
+    color: #F660AB;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .table_icon {
+    font-size: 16px;
+    color: green;
+    margin-top: -4px;
+  }

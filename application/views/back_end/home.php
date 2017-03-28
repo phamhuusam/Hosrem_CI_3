@@ -19,6 +19,7 @@ foreach ($dsBacSi_ChuaDuyet as $bacsi) {
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['DienThoai']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['FullName']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['NgayCapNhatTinhTrang']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['LyDoTuChoi']) ?>');
       // push vao dataset
       dataSet_ChuaDuyet.push(mRecord_ChuaDuyet);
 
@@ -41,6 +42,7 @@ foreach ($dsBacSi_DaDuyet as $bacsi) {
       mRecord_DaDuyet.push('<?php echo ($bacsi['DienThoai']) ?>');
       mRecord_DaDuyet.push('<?php echo ($bacsi['FullName']) ?>');
       mRecord_DaDuyet.push('<?php echo ($bacsi['NgayCapNhatTinhTrang']) ?>');
+      mRecord_DaDuyet.push('<?php echo ($bacsi['LyDoTuChoi']) ?>');
       // push vao dataset
 
       dataSet_DaDuyet.push(mRecord_DaDuyet);
@@ -65,6 +67,7 @@ foreach ($dsBacSi_KhongDuyet as $bacsi) {
       mRecord_KhongDuyet.push('<?php echo ($bacsi['DienThoai']) ?>');
       mRecord_KhongDuyet.push('<?php echo ($bacsi['FullName']) ?>');
       mRecord_KhongDuyet.push('<?php echo ($bacsi['NgayCapNhatTinhTrang']) ?>');
+      mRecord_KhongDuyet.push('<?php echo ($bacsi['LyDoTuChoi']) ?>');
       // push vao dataset
       dataSet_KhongDuyet.push(mRecord_KhongDuyet);
 
@@ -87,6 +90,7 @@ foreach ($dsBacSi_Treo as $bacsi) {
       mRecord_Treo.push('<?php echo ($bacsi['DienThoai']) ?>');
       mRecord_Treo.push('<?php echo ($bacsi['FullName']) ?>');
       mRecord_Treo.push('<?php echo ($bacsi['NgayCapNhatTinhTrang']) ?>');
+      mRecord_Treo.push('<?php echo ($bacsi['LyDoTuChoi']) ?>');
       // push vao dataset
       dataSet_Treo.push(mRecord_Treo);
 
