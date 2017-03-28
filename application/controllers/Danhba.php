@@ -15,6 +15,10 @@ class Danhba extends CI_Controller {
 		$this->template_front_end->view("front_end/home");
 	}
 	public function dangky() {
+		$this->load->library("form_validation");
+		if($this->input->post("submit")){
+			echo "Người dùng đã nhấn Submit";
+		}
 		$this->template_front_end->view("front_end/dangky");
 	}
 

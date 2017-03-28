@@ -1,4 +1,5 @@
 	<div id="danhbawrapper">
+	<form action="" method="post">
 		<h2 class="dangky_title">ĐĂNG KÝ THÔNG TIN</h2>
 		<div class="left">
 			<label class="lbl_danhba">Upload hình đại diện</label class="lbl_danhba"><br />	
@@ -38,5 +39,5 @@
 			<input type="submit" class="float-right input_dangky" name="submit" value="Hoàn thành"/>		
 			<input type="submit" class="float-right input_dangky" name="xemthu" value="Xem thử"/>			
 		</div>
-
+	</form>
 	</div>
