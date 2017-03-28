@@ -156,7 +156,7 @@ $(document).ready(function() {
       "render": function(data, type, row) {
         var MnguoiDuyet = row[6];
         var valueReturn = "";
-        valueReturn += "<a href='#'><span class='glyphicon glyphicon-user table_icon' data-toggle='tooltip' title='Duyệt bởi " + MnguoiDuyet + "'></span></a>";
+        valueReturn += "<a href='#'><span class='glyphicon glyphicon-user table_icon' data-toggle='tooltip' title='Duyệt bởi: " + MnguoiDuyet + "'></span></a>";
         //valueReturn += "<a href='#' data-toggle='tooltip' title='Hooray!'>Hover over me</a>";
         valueReturn += " | " + row[7];
         return valueReturn;
@@ -198,8 +198,8 @@ $(document).ready(function() {
         var MnguoiDuyet = row[6];
         var mLyDo = row[8];
         var valueReturn = "";
-        valueReturn += "<a href='#'><span class='glyphicon glyphicon-user table_icon' data-toggle='tooltip' title='Không duyệt bởi " + MnguoiDuyet + "'></span></a>";
-        valueReturn += " | <a href='#'><span class='glyphicon glyphicon-info-sign table_icon' data-toggle='tooltip' title='Lý do" + mLyDo + "'></span></a>";
+        valueReturn += "<a href='#'><span class='glyphicon glyphicon-user table_icon' data-toggle='tooltip' title='Không duyệt bởi: " + MnguoiDuyet + "'></span></a>";
+        valueReturn += " | <a href='#'><span class='glyphicon glyphicon-info-sign table_icon' data-toggle='tooltip' title='Lý do: " + mLyDo + "'></span></a>";
         
 
         
