@@ -78,5 +78,17 @@ class MBacSi extends CI_Model {
 		//sau đó insert record mới vào.  với cái cờ check là hiện tại
 		$this->db->insert('chitietbacsi_tinhtrang', $data);
 	}
+	public function InsertDanhba($data){
+		$this->db->insert('bacsi',$data);
+		$id=$this->db->insert_id();		
+		$data_2 = array(
+			'FlagHienTai' => 1,
+			'bacsi'=>$id,
+			'NgayCapNhatTinhTrang'=>date("Y-m-d"),
+			'TinhTrang'=>2,
+			'NguoiDuyet'=>1
+		);
+		$this->db->insert('chitietbacsi_tinhtrang', $data_2);		
+	}
 }
 ?>

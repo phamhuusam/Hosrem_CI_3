@@ -14,12 +14,9 @@
 			selector: '.danhba_textarea',
 			height: 150,
 			menubar: false,
-			plugins: [
-			'searchreplace visualblocks code fullscreen',
-			'insertdatetime media table contextmenu paste code textcolor'
-		  ],
-			toolbar: 'undo redo | styleselect | bold italic | forecolor backcolor emoticons | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-			content_css: '//www.tinymce.com/css/codepen.min.css'
+			statusbar: false,
+	          plugins: "advlist lists ",
+	          toolbar: 'bold italic underline | bullist numlist outdent indent',
 		});	  
 	  </script>
 </head>
