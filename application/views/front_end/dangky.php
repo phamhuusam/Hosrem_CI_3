@@ -8,8 +8,8 @@
 				<div id="upload-demo" style="width:200px"></div>
 				<input type="file" id="upload" name="hinhanh">
 				<br/>
-				<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>
-				<a class="btn-sm btn-success xoay" style="float: left">Xoay</a>
+				<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>				
+				<img class="xoay" title="xoay ảnh" height="25px" src="<?php echo base_url()?>/public/images/rotate.png" />
 				<br/>
 			</div>
 			<div class="cauchamngon">
@@ -107,34 +107,36 @@ $(document).ready(function() {
     // create button
     var button = document.getElementById("rotate");
 	$('.xoay').on('click', function() {
-		var cw=canvas.width;
-    	var ch=canvas.height;
-    	context.translate(cw/1.2, ch / cw);
+		
+		debugger
+		var image = new Image();
+		image.src = canvas.toDataURL();
+		context.clearRect(0,0,canvas.width,canvas.height);
+        context.save();
+        context.translate(canvas.width/2,canvas.height/2);
+        context.rotate(Math.PI/2);
+        context.drawImage(image,-image.width/2,-image.width/2);
+        context.restore();
 
-		var img = new Image();
-		img.src = canvas.toDataURL();
-		var img_width = img.width;
-		var img_height = img.height;
-		debugger;
-		context.rotate(Math.PI/2);
 
-
-
-		var img_transparent = context.createImageData(img_width, img_height);
-		for (var i = img_transparent.data.length; --i >= 0; )
-		  img_transparent.data[i] = 0;
-		context.putImageData(img_transparent, 0, 0);
-		context.drawImage(img, 0 , 0);
-		context.restore();
 	});
 
 	$('#upload').on('change', function () {
+
+		console.log(this.files[0].size);
+		if(this.files[0].size > 3000000) {
+			alert("Dung lượng file không được quá 3M");
+			return;
+			
+		}
+
 		var reader = new FileReader();
 	    reader.onload = function (e) {
 	    	$uploadCrop.croppie('bind', {
 	    		url: e.target.result
-	    	}).then(function(){
+	    	}).then(function(value){
 	    		console.log('jQuery bind complete');
+
 	    	});
 	    }
 	    reader.readAsDataURL(this.files[0]);
