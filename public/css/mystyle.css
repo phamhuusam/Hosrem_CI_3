@@ -494,8 +494,8 @@ span.title:hover{
 }
 .image-frame{
 	width:220px;
-	height:286px;
-	background:#d9d9d9;
+	height:auto;
+	
 	text-align:center;
 	vertical-align:middle;
 	border-radius:5px;	

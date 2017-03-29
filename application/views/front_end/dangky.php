@@ -1,41 +1,24 @@
 
-<div class="row">
-  		<div class="col-md-4 text-center">
-			<div id="upload-demo" style="width:350px"></div>
-  		</div>
-  		<div class="col-md-4" style="padding-top:30px;">
-			<strong>Select Image:</strong>
-			<br/>
-			<input type="file" id="upload">
-			<br/>
-			<button class="btn btn-success upload-result">Upload Image</button>
-  		</div>
-  		<div class="col-md-4" style="">
-			<div id="upload-demo-i" style="background:#e1e1e1;width:300px;padding:30px;height:300px;margin-top:30px"></div>
-  		</div>
-</div>
-
-
 	<div id="danhbawrapper">
 	<form action="" method="post">
 		<h2 class="dangky_title">ĐĂNG KÝ THÔNG TIN</h2>
 		<div class="left">
 			<label class="lbl_danhba">Upload hình đại diện</label><br />
 			<div class="image-frame">
-				<a href="#"><img src="<?php echo base_url() ?>public/images/bacsi.png"></a>
+				<div id="upload-demo" style="width:200px"></div>
 				<input type="file" id="upload" name="hinhanh">
+				<br/>
+				<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>
 
+				<br/>
 			</div>
 			<div class="cauchamngon">
 				<label class="lbl_danhba">Câu châm ngôn yêu thích</label><br />
 				<input type="text" name="cauchamngon" value="<?php echo set_value('cauchamngon'); ?>" />
 			</div>
-
 			<div >
-				<input type="text" id="txtHinhAnh" name="txtHinhAnh" value="<?php echo set_value('txtHinhAnh'); ?>" />
+				<input style="display: none" type="text" id="txtHinhAnh" name="txtHinhAnh" value="<?php echo set_value('txtHinhAnh'); ?>" />
 			</div>
-
-
 		</div>
 		<div class="right">
 			<div class="div_hoten float-left">
@@ -101,11 +84,11 @@ $uploadCrop = $('#upload-demo').croppie({
     viewport: {
         width: 200,
         height: 200,
-        type: 'circle'
+        type: 'rectangle'
     },
     boundary: {
-        width: 300,
-        height: 300
+        width: 220,
+        height: 220
     }
 });
 

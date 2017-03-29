@@ -46,9 +46,10 @@ class Danhba extends CI_Controller {
 					"BaiVietChuyenNganh" => $this->input->post("baivietchuyennganh"),
 					"CongTacBaoCao" => $this->input->post("congtacbaocao"),
 					"NghienCuuNoiBat" => $this->input->post("nghiencuunoibat"),
+					"HinhAnh" => $this->input->post("txtHinhAnh"),
 				);
 				$this->MBacSi->InsertDanhba($data);
-				redirect("http://localhost:8080/hosrem_new/trunk/danhba/success#");
+				redirect("danhba/success#");
 			}
 
 		}
