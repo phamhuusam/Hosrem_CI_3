@@ -48,6 +48,7 @@ class Danhba extends CI_Controller {
 					"NghienCuuNoiBat"=>$this->input->post("nghiencuunoibat")					
 					);
 					$this->MBacSi->InsertDanhba($data);
+					redirect("http://localhost:8080/hosrem_new/trunk/danhba/success#");
 			}
 			
 		}
@@ -56,5 +57,8 @@ class Danhba extends CI_Controller {
 
 	public function danhsach() {
 		$this->template_front_end->view("front_end/danhsach");
+	}
+	public function success(){
+		$this->template_front_end->view("front_end/success");
 	}
 }
