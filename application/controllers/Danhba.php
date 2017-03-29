@@ -17,40 +17,40 @@ class Danhba extends CI_Controller {
 	public function dangky() {
 		$this->load->helper('form');
 		$this->load->library("form_validation");
-		if($this->input->post("submit")){
+		if ($this->input->post("submit")) {
 			$this->form_validation->set_rules('hoten', 'Họ và tên', 'required');
 			$this->form_validation->set_message('required', '%s không được để trống.');
 			$this->form_validation->set_rules('donvicongtac', 'Đơn vị công tác hiện tại', 'required');
-			$this->form_validation->set_message('required', '%s không được để trống.');	
+			$this->form_validation->set_message('required', '%s không được để trống.');
 			$this->form_validation->set_rules('dt', 'Điện thoại', 'required|numeric|min_length[7]|max_length[12]');
 			$this->form_validation->set_message('required', '%s không được để trống.');
-			$this->form_validation->set_message('numeric', '%s không đúng định dạng.');		
+			$this->form_validation->set_message('numeric', '%s không đúng định dạng.');
 			$this->form_validation->set_message('min_length', '%s không được dưới %d kí tự.');
-			$this->form_validation->set_message('max_length', '%s không được vượt quá %d kí tự.');						
+			$this->form_validation->set_message('max_length', '%s không được vượt quá %d kí tự.');
 			$this->form_validation->set_rules('email', 'Địa chỉ email', 'required|valid_email');
-			$this->form_validation->set_message('required', '%s không được để trống.');			
-			$this->form_validation->set_message('valid_email', '%s không đúng định dạng.');			
+			$this->form_validation->set_message('required', '%s không được để trống.');
+			$this->form_validation->set_message('valid_email', '%s không đúng định dạng.');
 			$this->form_validation->set_rules('quatrinhhoctap', 'Quá trình học tập', 'required');
-			$this->form_validation->set_message('required', '%s không được để trống.');			
-			$this->form_validation->set_error_delimiters('<span class="error">','</span>');			
-			if($this->form_validation->run()){
-				$data=array(
-					"CauChamNgon"=>$this->input->post("cauchamngon"),
-					"Ten"=>$this->input->post("hoten"),
-					"HinhAnh"=>$this->input->post("hinhanh"),
-					"DienThoai"=>$this->input->post("dt"),
-					"Email"=>$this->input->post("email"),
-					"DonViCongTac"=>$this->input->post("donvicongtac"),
-					"QuaTrinhHocTapVaCongTac"=>$this->input->post("quatrinhhoctap"),
-					"KinhNghiemCongTac"=>$this->input->post("kinhnghiemcongtac"),
-					"BaiVietChuyenNganh"=>$this->input->post("baivietchuyennganh"),
-					"CongTacBaoCao"=>$this->input->post("congtacbaocao"),
-					"NghienCuuNoiBat"=>$this->input->post("nghiencuunoibat")					
-					);
-					$this->MBacSi->InsertDanhba($data);
-					redirect("http://localhost:8080/hosrem_new/trunk/danhba/success#");
+			$this->form_validation->set_message('required', '%s không được để trống.');
+			$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
+			if ($this->form_validation->run()) {
+				$data = array(
+					"CauChamNgon" => $this->input->post("cauchamngon"),
+					"Ten" => $this->input->post("hoten"),
+					"HinhAnh" => $this->input->post("hinhanh"),
+					"DienThoai" => $this->input->post("dt"),
+					"Email" => $this->input->post("email"),
+					"DonViCongTac" => $this->input->post("donvicongtac"),
+					"QuaTrinhHocTapVaCongTac" => $this->input->post("quatrinhhoctap"),
+					"KinhNghiemCongTac" => $this->input->post("kinhnghiemcongtac"),
+					"BaiVietChuyenNganh" => $this->input->post("baivietchuyennganh"),
+					"CongTacBaoCao" => $this->input->post("congtacbaocao"),
+					"NghienCuuNoiBat" => $this->input->post("nghiencuunoibat"),
+				);
+				$this->MBacSi->InsertDanhba($data);
+				redirect("http://localhost:8080/hosrem_new/trunk/danhba/success#");
 			}
-			
+
 		}
 		$this->template_front_end->view("front_end/dangky");
 	}
@@ -58,7 +58,17 @@ class Danhba extends CI_Controller {
 	public function danhsach() {
 		$this->template_front_end->view("front_end/danhsach");
 	}
-	public function success(){
+	public function success() {
 		$this->template_front_end->view("front_end/success");
+	}
+
+	public function UploadFile() {
+		$data = $_POST['image'];
+		list($type, $data) = explode(';', $data);
+		list(, $data) = explode(',', $data);
+		$data = base64_decode($data);
+		$imageName = time() . '.png';
+		file_put_contents(dirname(__DIR__) . '/../public/images/' . $imageName, $data);
+		echo $imageName;
 	}
 }
