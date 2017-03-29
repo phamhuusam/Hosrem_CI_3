@@ -57,7 +57,8 @@ class Danhba extends CI_Controller {
 	}
 
 	public function danhsach() {
-		$this->template_front_end->view("front_end/danhsach");
+		$data['danhsach_Bacsi']=$this->MBacSi->listall_Danhba();
+		$this->template_front_end->view("front_end/danhsach",$data);
 	}
 	public function success() {
 		$this->template_front_end->view("front_end/success");

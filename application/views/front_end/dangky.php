@@ -79,12 +79,13 @@
 
 
 <script type="text/javascript">
-$uploadCrop = $('#upload-demo').croppie({
+$uploadCrop = $('#upload-demo').croppie({	
     enableExif: true,
+    enableOrientation:true,
     viewport: {
         width: 200,
         height: 200,
-        type: 'rectangle'
+        type: 'square'
     },
     boundary: {
         width: 220,
@@ -108,7 +109,11 @@ $('#upload').on('change', function () {
 $('.upload-result').on('click', function (ev) {
 	$uploadCrop.croppie('result', {
 		type: 'canvas',
-		size: 'viewport'
+		quality: '1',
+		size: {
+		width: 800,
+		height: 600
+		}
 	}).then(function (resp) {
 		$.ajax({
 			url: base_url_original + "/Danhba/UploadFile",

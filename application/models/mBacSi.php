@@ -3,6 +3,16 @@ class MBacSi extends CI_Model {
 	public function count_all() {
 		return $this->db->count_all('bacsi');
 	}
+	public function listall_Danhba() {
+		$this->db->flush_cache();
+		$this->db->select('bacsi.*');
+		$this->db->from('bacsi');
+		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');		
+		$this->db->where('tinhtrang.id', 1);
+		$query = $this->db->get();
+		return $query->result_array();
+	}	
 
 	public function listall() {
 		$this->db->flush_cache();

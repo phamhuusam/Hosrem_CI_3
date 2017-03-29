@@ -1,3 +1,8 @@
+<?php
+foreach ($danhsach_Bacsi as $bacsi) {
+	echo $bacsi['Ten'] ."<br />";
+}
+?>
 	<div id="danhbawrapper">
 		<div class="db-header">
 			<div class="search-box">
