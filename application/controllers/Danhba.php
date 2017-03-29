@@ -70,7 +70,7 @@ class Danhba extends CI_Controller {
 		list(, $data) = explode(',', $data);
 		$data = base64_decode($data);
 		$imageName = time() . '.png';
-		file_put_contents(dirname(__DIR__) . '/../public/images/hinh_bacsi' . $imageName, $data);
+		file_put_contents(dirname(__DIR__) . '/../public/images/hinh_bacsi/' . $imageName, $data);
 		echo $imageName;
 	}
 }
