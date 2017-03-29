@@ -9,7 +9,7 @@
 				<input type="file" id="upload" name="hinhanh">
 				<br/>
 				<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>
-
+				<a class="btn-sm btn-success xoay" style="float: left">Xoay</a>
 				<br/>
 			</div>
 			<div class="cauchamngon">
@@ -91,7 +91,12 @@ $uploadCrop = $('#upload-demo').croppie({
         width: 220,
         height: 220
     }
+
 });
+
+$('.xoay').on('click', function() {
+        $('#upload-demo').rotate(parseInt($(this).data('deg')));
+        });
 
 $('#upload').on('change', function () {
 	var reader = new FileReader();
