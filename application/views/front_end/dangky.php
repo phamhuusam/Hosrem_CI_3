@@ -79,58 +79,90 @@
 
 
 <script type="text/javascript">
-$uploadCrop = $('#upload-demo').croppie({	
-    enableExif: true,
-    enableOrientation:true,
-    viewport: {
-        width: 200,
-        height: 200,
-        type: 'square'
-    },
-    boundary: {
-        width: 220,
-        height: 220
-    }
 
-});
+$(document).ready(function() {
+	$uploadCrop = $('#upload-demo').croppie({
+	    enableExif: true,
+	    enableOrientation:true,
+	    viewport: {
+	        width: 200,
+	        height: 200,
+	        type: 'square'
+	    },
+	    boundary: {
+	        width: 220,
+	        height: 220
+	    }
 
-$('.xoay').on('click', function() {
-        $('#upload-demo').rotate(parseInt($(this).data('deg')));
-        });
+	});
 
-$('#upload').on('change', function () {
-	var reader = new FileReader();
-    reader.onload = function (e) {
-    	$uploadCrop.croppie('bind', {
-    		url: e.target.result
-    	}).then(function(){
-    		console.log('jQuery bind complete');
-    	});
 
-    }
-    reader.readAsDataURL(this.files[0]);
-});
+	var canvas = document.getElementsByClassName("cr-image")[0];
+    var context = canvas.getContext("2d");
+    // Sample graphic
 
-$('.upload-result').on('click', function (ev) {
-	$uploadCrop.croppie('result', {
-		type: 'canvas',
-		quality: '1',
-		size: {
-		width: 800,
-		height: 600
-		}
-	}).then(function (resp) {
-		$.ajax({
-			url: base_url_original + "/Danhba/UploadFile",
-			type: "POST",
-			data: {"image":resp},
-			success: function (data) {
-				debugger
-				html = '<img src="' + resp + '" />';
-				$("#upload-demo-i").html(html);
-				$("#txtHinhAnh").val(data);
+	function getRadianAngle(degreeValue) {
+	    return degreeValue * Math.PI / 180;
+	}
+    // create button
+    var button = document.getElementById("rotate");
+	$('.xoay').on('click', function() {
+		var cw=canvas.width;
+    	var ch=canvas.height;
+    	context.translate(cw/1.2, ch / cw);
+
+		var img = new Image();
+		img.src = canvas.toDataURL();
+		var img_width = img.width;
+		var img_height = img.height;
+		debugger;
+		context.rotate(Math.PI/2);
+
+
+
+		var img_transparent = context.createImageData(img_width, img_height);
+		for (var i = img_transparent.data.length; --i >= 0; )
+		  img_transparent.data[i] = 0;
+		context.putImageData(img_transparent, 0, 0);
+		context.drawImage(img, 0 , 0);
+		context.restore();
+	});
+
+	$('#upload').on('change', function () {
+		var reader = new FileReader();
+	    reader.onload = function (e) {
+	    	$uploadCrop.croppie('bind', {
+	    		url: e.target.result
+	    	}).then(function(){
+	    		console.log('jQuery bind complete');
+	    	});
+	    }
+	    reader.readAsDataURL(this.files[0]);
+	});
+
+	$('.upload-result').on('click', function (ev) {
+		$uploadCrop.croppie('result', {
+			type: 'canvas',
+			quality: '1',
+			size: {
+			width: 800,
+			height: 800
 			}
+		}).then(function (resp) {
+			$.ajax({
+				url: base_url_original + "/Danhba/UploadFile",
+				type: "POST",
+				data: {"image":resp},
+				success: function (data) {
+					debugger
+					html = '<img src="' + resp + '" />';
+					$("#upload-demo-i").html(html);
+					$("#txtHinhAnh").val(data);
+				}
+			});
 		});
 	});
 });
 </script>
+
+ <script src="http://t4t5.github.io/sweetalert/dist/sweetalert-dev.js"></script>
