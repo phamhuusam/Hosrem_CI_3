@@ -25,7 +25,7 @@ $(document).ready(function() {
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/" + data + "'>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/hinh_bacsi/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
@@ -148,7 +148,7 @@ $(document).ready(function() {
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/" + data + "'>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/hinh_bacsi/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
@@ -189,7 +189,7 @@ $(document).ready(function() {
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/" + data + "'>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/hinh_bacsi/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
@@ -236,7 +236,7 @@ $(document).ready(function() {
     columnDefs: [{ // Money columns
       "targets": 2,
       "render": function(data, type, row) {
-        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/" + data + "'>";
+        var valueReturn = "<img style='height: 70px;  border-radius: 35px' src='" + base_url_original + "public/images/hinh_bacsi/" + data + "'>";
         return valueReturn;
       }
     }, { // Money columns
