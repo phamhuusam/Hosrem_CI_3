@@ -513,7 +513,7 @@ span.title:hover{
 
 }
 .cauchamngon input{
-	background:#d9d9d9;		
+	background:#e9e9e9;		
 		width:100%;
 	height:50px;
 	border-radius:5px;	
@@ -526,13 +526,21 @@ span.title:hover{
 .div_donvicongtac{
 	width: 425px;
 }
+.div_dt{
+	float:left;
+	width: 295px;
+	margin-right:10px;
+}
+.div_email{
+	width: 425px;
+}
 .div_quatrinhhoctap{
 	width:100%;
 }
-.div_hoten input, .div_donvicongtac input,.div_quatrinhhoctap textarea,.div_kinhnghiemcongtac textarea,.div_hoatdongchuyennganh textarea{
+.div_hoten input, .div_donvicongtac input,.div_dt input,.div_email input,.div_quatrinhhoctap textarea,.div_kinhnghiemcongtac textarea,.div_hoatdongchuyennganh textarea{
 	max-width:100%;
 	width:100%;
-	background:#d9d9d9;
+	background:#e9e9e9;
 	color:#000;
 	padding:5px;
 	border-radius:5px;
@@ -550,3 +558,8 @@ span.title:hover{
 	float:right;
 }
 /*end of form dang ky*/
+span.error{
+	color:red;
+	font-style: italic;
+	font-size:11px;
+}
