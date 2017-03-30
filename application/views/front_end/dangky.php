@@ -229,15 +229,12 @@ function checkValidate() {
 		if( valueText.trim().length == 0) {
 			alert(value.name + " chưa được nhập thông tin");
 			mField.addClass("boderRed");
-<<<<<<< .mine			if(value.tinyMCE == true)
+
+			if(value.tinyMCE == true)
 				tinyMCE.get(value.field).focus();
 			else
 				mField.focus();
-=======			if(value.tinyMCE == true) {
-				document.TestForm.quatrinhhoctap.focus(); 
-			}
-			mField.focus();
->>>>>>> .theirs
+
 			valueReturn = false;
 			return false;
 		}
