@@ -22,7 +22,6 @@
 	          plugins: "advlist lists ",
 	          toolbar: 'bold italic underline | bullist numlist outdent indent',
 		});
-
 		var base_url_original = "<?php echo base_url() ?>";
 
 

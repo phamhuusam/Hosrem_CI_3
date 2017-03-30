@@ -85,6 +85,9 @@ $(document).ready(function() {
 		 	alert("Bạn chưa chọn hình ảnh đại diện");
 			return false;
 		}
+
+
+
 		else {
 			$uploadCrop.croppie('result', {
 			type: 'canvas',
@@ -105,8 +108,11 @@ $(document).ready(function() {
 					//document.getElementsByClassName("txtImage").value = data;
 					console.log($(".txtImage").val());
 					setTimeout(function(){
-						$(".input_hoanthanh_1").trigger('click');
-					}, 500);
+						if(checkValidate() == true) {
+							console.log("sao bằng true");
+							//$(".input_hoanthanh_1").trigger('click');
+						}
+					}, 100);
 				}
 			});
 		});
@@ -145,7 +151,7 @@ $(document).ready(function() {
     var button = document.getElementById("rotate");
 	$('.xoay').on('click', function() {
 
-		debugger
+
 		var image = new Image();
 		image.src = canvas.toDataURL();
 		context.clearRect(0,0,canvas.width,canvas.height);
@@ -179,5 +185,48 @@ $(document).ready(function() {
 	    reader.readAsDataURL(this.files[0]);
 	});
 });
+
+
+
+function checkValidate() {
+	var mArrayCheck = [{
+		'field': 'cauchamngon',
+		'name': 'Câu châm ngôn'
+	}, {
+		'field': 'hoten',
+		'name': 'Họ và tên'
+	}, {
+		'field': 'donvicongtac',
+		'name': 'Đơn vị công tác'
+	}, {
+		'field': 'dt',
+		'name': 'Điện thoại'
+	}, {
+		'field': 'email',
+		'name': 'Email'
+	}, {
+		'field': 'email',
+		'name': 'Điện thoại'
+	}, {
+		'field': 'quatrinhhoctap',
+		'name': 'Quá trình học tập'
+	}];
+
+	$.each(mArrayCheck, function(index, value){
+		var valueReturn = true;
+		var mField = $("input[name=" + value.field +  "]");
+		mField.removeClass("boderRed");
+		var  valueText =  mField.val();
+		if( valueText.length == 0) {
+			alert(value.name + " chưa được nhập thông tin");
+			mField.addClass("boderRed");
+			mField.focus();
+			valueReturn = false;
+			return false;
+		}
+	})
+	return valueReturn;
+
+}
 </script>
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert-dev.js"></script>
