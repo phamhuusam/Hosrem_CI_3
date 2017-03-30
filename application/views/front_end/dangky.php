@@ -1,6 +1,6 @@
 
 	<div id="danhbawrapper">
-	<form id="form_DangKy" action="" method="post" accept-charset="utf->
+	<form id="form_DangKy" name="TestForm" action="" method="post" accept-charset="utf->
 		<h2 class="dangky_title">ĐĂNG KÝ THÔNG TIN</h2>
 		<div class="left">
 			<label class="lbl_danhba">Upload hình đại diện</label><br />
@@ -45,7 +45,7 @@
 			<div class="div_quatrinhhoctap">
 				<label class="lbl_danhba">Quá trình học tập</label><br />
 				<?php echo form_error("quatrinhhoctap"); ?>
-				<textarea rows="4" cols="50" name="quatrinhhoctap" class="txt_quatrinhhoctap danhba_textarea" >
+				<textarea rows="2" cols="50" name="quatrinhhoctap" class="txt_quatrinhhoctap danhba_textarea" >
 					<?php echo set_value('quatrinhhoctap'); ?>
 				</textarea>
 			</div>
@@ -223,13 +223,17 @@ function checkValidate() {
 		var  valueText = mField.val();
 
 		if(value.tinyMCE == true) {
-			debugger
+			//debugger
 			valueText = tinyMCE.get('quatrinhhoctap').getContent();
 		}
 		if( valueText.trim().length == 0) {
 			alert(value.name + " chưa được nhập thông tin");
 			mField.addClass("boderRed");
+			if(value.tinyMCE == true) {
+				document.TestForm.quatrinhhoctap.focus(); 
+			}
 			mField.focus();
+
 			valueReturn = false;
 			return false;
 		}

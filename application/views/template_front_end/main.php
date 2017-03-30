@@ -16,7 +16,7 @@
 	 <script>
 		tinymce.init({
 			selector: '.danhba_textarea',
-			height: 150,
+			height: 100,
 			menubar: false,
 			statusbar: false,
 	          plugins: "advlist lists ",
