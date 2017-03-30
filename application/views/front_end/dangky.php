@@ -1,15 +1,16 @@
 
 	<div id="danhbawrapper">
-	<form action="" method="post">
+	<form id="form_DangKy" action="" method="post">
 		<h2 class="dangky_title">ĐĂNG KÝ THÔNG TIN</h2>
 		<div class="left">
 			<label class="lbl_danhba">Upload hình đại diện</label><br />
 			<div class="image-frame">
 				<div id="upload-demo" style="width:200px"></div>
-				<input type="file" id="upload" name="hinhanh">
-				<br/>
-				<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>				
-				<img class="xoay" title="xoay ảnh" height="25px" src="<?php echo base_url()?>/public/images/rotate.png" />
+				<a class="chonAnh" style="font-weight: bold; padding-right: 10px; cursor: pointer;"> Chọn ảnh </a>
+				<input type="file" style="display: none" id="upload" name="hinhanh" value="Chèn ảnh">
+
+				<!--<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>-->
+				<img class="xoay" title="xoay ảnh" height="25px" src="<?php echo base_url() ?>/public/images/rotate.png" />
 				<br/>
 			</div>
 			<div class="cauchamngon">
@@ -70,17 +71,49 @@
 					<?php echo set_value('nghiencuunoibat'); ?>
 				</textarea>
 			</div>
-			<input type="submit" class="float-right input_dangky" name="submit" value="Hoàn thành"/>
-			<input type="submit" class="float-right input_dangky" name="xemthu" value="Xem thử"/>
+			<input type="button" class="float-right input_hoanthanh" name="submit" value="Hoàn thành"/>
+			<input type="button" class="float-right input_dangky" name="xemthu" value="Xem thử"/>
 		</div>
 	</form>
 	</div>
-
-
-
 <script type="text/javascript">
 
 $(document).ready(function() {
+	$('.input_hoanthanh').click(function(e){
+		var  file = $('#upload')[0].files[0]
+		if(file == null) {
+		 	alert("Bạn chưa chọn hình ảnh đại diện");
+			return false;
+		}
+		else {
+			$uploadCrop.croppie('result', {
+			type: 'canvas',
+			quality: '1',
+			size: {
+			width: 800,
+			height: 800
+			}
+		}).then(function (resp) {
+			$.ajax({
+				url: base_url_original + "/Danhba/UploadFile",
+				type: "POST",
+				data: {"image":resp},
+				success: function (data) {
+					html = '<img src="' + resp + '" />';
+					//$("#upload-demo-i").html(html);
+					$("#txtHinhAnh").val(data);
+					$("#form_DangKy").submit();
+				}
+			});
+		});
+		}
+	});
+
+
+	$('.chonAnh').click(function() {
+		$('#upload').click();
+	});
+
 	$uploadCrop = $('#upload-demo').croppie({
 	    enableExif: true,
 	    enableOrientation:true,
@@ -107,7 +140,7 @@ $(document).ready(function() {
     // create button
     var button = document.getElementById("rotate");
 	$('.xoay').on('click', function() {
-		
+
 		debugger
 		var image = new Image();
 		image.src = canvas.toDataURL();
@@ -127,7 +160,7 @@ $(document).ready(function() {
 		if(this.files[0].size > 3000000) {
 			alert("Dung lượng file không được quá 3M");
 			return;
-			
+
 		}
 
 		var reader = new FileReader();
@@ -142,29 +175,7 @@ $(document).ready(function() {
 	    reader.readAsDataURL(this.files[0]);
 	});
 
-	$('.upload-result').on('click', function (ev) {
-		$uploadCrop.croppie('result', {
-			type: 'canvas',
-			quality: '1',
-			size: {
-			width: 800,
-			height: 800
-			}
-		}).then(function (resp) {
-			$.ajax({
-				url: base_url_original + "/Danhba/UploadFile",
-				type: "POST",
-				data: {"image":resp},
-				success: function (data) {
-					debugger
-					html = '<img src="' + resp + '" />';
-					$("#upload-demo-i").html(html);
-					$("#txtHinhAnh").val(data);
-				}
-			});
-		});
-	});
+
 });
 </script>
-
  <script src="http://t4t5.github.io/sweetalert/dist/sweetalert-dev.js"></script>

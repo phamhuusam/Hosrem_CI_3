@@ -544,12 +544,14 @@ span.title:hover{
 	padding:5px;
 	border-radius:5px;
 }
-.input_dangky{
+.input_dangky, .input_hoanthanh{
 	background: #1392df;
 	color:#fff;
 	padding:10px;
 	margin:10px 0px 5px 5px;
+	cursor: pointer;
 }
+
 .float-left{
 	float:left;
 }
