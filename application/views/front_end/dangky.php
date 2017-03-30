@@ -215,9 +215,14 @@ function checkValidate() {
 	$.each(mArrayCheck, function(index, value){
 		var valueReturn = true;
 		var mField = $("input[name=" + value.field +  "]");
+		debugger
+		if(mField.length == 0) {{
+			 mField = $("textarea[name=" + value.field +  "]");
+		}}
+
 		mField.removeClass("boderRed");
-		var  valueText =  mField.val();
-		if( valueText.length == 0) {
+		var  valueText = mField.val();
+		if( valueText.trim().length == 0) {
 			alert(value.name + " chưa được nhập thông tin");
 			mField.addClass("boderRed");
 			mField.focus();
