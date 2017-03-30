@@ -3,6 +3,8 @@ class MBacSi extends CI_Model {
 	public function count_all() {
 		return $this->db->count_all('bacsi');
 	}
+
+
 	public function listall_Danhba() {
 		$this->db->flush_cache();
 		$this->db->select('bacsi.*');

@@ -1,3 +1,8 @@
+<?php
+echo "<pre>";
+print_r($TinhThanh);
+echo "</pre>";
+?>
 
 	<div id="danhbawrapper">
 	<form id="form_DangKy" name="TestForm" action="" method="post" accept-charset="utf->
@@ -26,11 +31,28 @@
 				<?php echo form_error("hoten"); ?>
 				<input type="text" name="hoten" class="txt_hoten" value="<?php echo set_value('hoten'); ?>" />
 			</div>
+			<div class="div_namsinh float-left">
+				<label class="lbl_danhba">Năm sinh</label><br />
+				<?php echo form_error("namsinh"); ?>
+				<input type="text" name="namsinh" class="txt_namsinh" value="<?php echo set_value('namsinh'); ?>" />
+			</div>
+			<div class="div_gioitinh float-left">
+			<label class="lbl_danhba gioitinh">Giới tính</label><br />
+				<div class="gioitinh_wrapper">			
+					<label for="nam" class="nam">Nam<input type="radio" id="one" name="nam" value="Nam" /></label>
+					<label for="nu" class="nu">Nữ<input type="radio" id="two" name="nam" value="Nữ" /></label>
+				</div>
+			</div>								
 			<div class="div_donvicongtac float-left">
 				<label class="lbl_danhba">Đơn vị công tác hiện tại</label><br />
 				<?php echo form_error("donvicongtac"); ?>
 				<input type="text" name="donvicongtac" class="txt_donvicongtac" value="<?php echo set_value('donvicongtac'); ?>" />
 			</div>
+			<div class="div_tinhthanh float-left">
+				<label class="lbl_danhba">Tỉnh thành</label><br />
+				<?php echo form_dropdown('TinhThanh', $TinhThanh, 1);?>
+			</div>
+			<div class="clear"></div>			
 			<div class="div_dt float-left">
 				<label class="lbl_danhba">Điện thoại</label><br />
 				<?php echo form_error("dt"); ?>
@@ -41,6 +63,15 @@
 				<?php echo form_error("email"); ?>
 				<input type="text" name="email" class="txt_email" value="<?php echo set_value('email'); ?>" />
 			</div>
+			<div class="div_facebook float-left">
+				<label class="lbl_danhba">Địa chỉ facebook</label><br />
+				<?php echo form_error("facebook"); ?>
+				<input type="text" name="facebook" class="txt_facebook" value="<?php echo set_value('facebook'); ?>" />
+			</div>
+			<div class="clear"></div>
+			<div class="showhide">
+				<input type="checkbox" name="showhide" value="showhide" style="margin-right:5px">Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)<br>
+			</div>						
 			<div class="clear"></div>
 			<div class="div_quatrinhhoctap">
 				<label class="lbl_danhba">Quá trình học tập</label><br />

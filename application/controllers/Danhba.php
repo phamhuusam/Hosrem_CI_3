@@ -6,6 +6,7 @@ class Danhba extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->Model("MBacSi");
+		$this->load->Model("MTinhThanh");
 		$this->load->helper("url");
 		$this->load->library("template_front_end");
 		$this->template_front_end->setLayout("template_front_end/main"); // load file layout chính (view/template_front_end/main)
@@ -52,7 +53,13 @@ class Danhba extends CI_Controller {
 			//}
 
 		}
-		$this->template_front_end->view("front_end/dangky");
+		$TinhThanh=$this->MTinhThanh->listall_Tinhthanh();
+
+echo "<pre>";
+print_r($TinhThanh);
+echo "</pre>";
+
+		//$this->template_front_end->view("front_end/dangky",$data['TinhThanh']);
 	}
 
 	public function danhsach() {
