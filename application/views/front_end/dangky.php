@@ -110,7 +110,7 @@ $(document).ready(function() {
 					setTimeout(function(){
 						if(checkValidate() == true) {
 							console.log("sao bằng true");
-							//$(".input_hoanthanh_1").trigger('click');
+							$(".input_hoanthanh_1").trigger('click');
 						}
 					}, 100);
 				}
@@ -209,19 +209,23 @@ function checkValidate() {
 		'name': 'Điện thoại'
 	}, {
 		'field': 'quatrinhhoctap',
-		'name': 'Quá trình học tập'
+		'name': 'Quá trình học tập',
+		'tinyMCE': true
 	}];
-
+	var valueReturn = true;
 	$.each(mArrayCheck, function(index, value){
-		var valueReturn = true;
 		var mField = $("input[name=" + value.field +  "]");
-		debugger
 		if(mField.length == 0) {{
 			 mField = $("textarea[name=" + value.field +  "]");
 		}}
-
 		mField.removeClass("boderRed");
+
 		var  valueText = mField.val();
+
+		if(value.tinyMCE == true) {
+			debugger
+			valueText = tinyMCE.get('quatrinhhoctap').getContent();
+		}
 		if( valueText.trim().length == 0) {
 			alert(value.name + " chưa được nhập thông tin");
 			mField.addClass("boderRed");
