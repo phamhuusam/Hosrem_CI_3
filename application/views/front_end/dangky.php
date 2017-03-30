@@ -1,8 +1,3 @@
-<?php
-echo "<pre>";
-print_r($TinhThanh);
-echo "</pre>";
-?>
 
 	<div id="danhbawrapper">
 	<form id="form_DangKy" name="TestForm" action="" method="post" accept-charset="utf->
@@ -38,11 +33,11 @@ echo "</pre>";
 			</div>
 			<div class="div_gioitinh float-left">
 			<label class="lbl_danhba gioitinh">Giới tính</label><br />
-				<div class="gioitinh_wrapper">			
+				<div class="gioitinh_wrapper">
 					<label for="nam" class="nam">Nam<input type="radio" id="one" name="nam" value="Nam" /></label>
 					<label for="nu" class="nu">Nữ<input type="radio" id="two" name="nam" value="Nữ" /></label>
 				</div>
-			</div>								
+			</div>
 			<div class="div_donvicongtac float-left">
 				<label class="lbl_danhba">Đơn vị công tác hiện tại</label><br />
 				<?php echo form_error("donvicongtac"); ?>
@@ -50,9 +45,9 @@ echo "</pre>";
 			</div>
 			<div class="div_tinhthanh float-left">
 				<label class="lbl_danhba">Tỉnh thành</label><br />
-				<?php echo form_dropdown('TinhThanh', $TinhThanh, 1);?>
+				<?php echo form_dropdown('TinhThanh', $TinhThanh, 0); ?>
 			</div>
-			<div class="clear"></div>			
+			<div class="clear"></div>
 			<div class="div_dt float-left">
 				<label class="lbl_danhba">Điện thoại</label><br />
 				<?php echo form_error("dt"); ?>
@@ -71,7 +66,7 @@ echo "</pre>";
 			<div class="clear"></div>
 			<div class="showhide">
 				<input type="checkbox" name="showhide" value="showhide" style="margin-right:5px">Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)<br>
-			</div>						
+			</div>
 			<div class="clear"></div>
 			<div class="div_quatrinhhoctap">
 				<label class="lbl_danhba">Quá trình học tập</label><br />

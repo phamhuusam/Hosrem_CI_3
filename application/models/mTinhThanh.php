@@ -5,8 +5,8 @@ class MTinhThanh extends CI_Model {
 		$this->db->select('tinhthanh.Id,tinhthanh.TenTinh');
 		$this->db->from('tinhthanh');
 		$query = $this->db->get();
-		return $query->result();
-	}	
+		return $query->result_array();
+	}
 }
 ?>
 

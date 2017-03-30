@@ -53,13 +53,15 @@ class Danhba extends CI_Controller {
 			//}
 
 		}
-		$TinhThanh=$this->MTinhThanh->listall_Tinhthanh();
-
-echo "<pre>";
-print_r($TinhThanh);
-echo "</pre>";
-
-		//$this->template_front_end->view("front_end/dangky",$data['TinhThanh']);
+		$TinhThanh = $this->MTinhThanh->listall_Tinhthanh();
+		//convert here
+		$TinhThanhConvert = [];
+		$TinhThanhConvert[0] = "----- Chọn tỉnh thành -----";
+		foreach ($TinhThanh as $key => $value) {
+			$TinhThanhConvert[$value["Id"]] = $value["TenTinh"];
+		}
+		$data['TinhThanh'] = $TinhThanhConvert;
+		$this->template_front_end->view("front_end/dangky", $data);
 	}
 
 	public function danhsach() {
