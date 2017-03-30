@@ -4,7 +4,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="<?php echo base_url() ?>public/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url() ?>public/css/mystyle.css">
-	<script src="<?php echo base_url() ?>public/jquery-3.2.1.js"></script>
+	<!--<script src="<?php echo base_url() ?>public/jquery-3.2.1.js"></script>-->
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
 	<script src="<?php echo base_url() ?>public/bootstrap-3.3.7/js/bootstrap.js"></script>
 	<script src="<?php echo base_url() ?>public/js/croppie.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/croppie.css">

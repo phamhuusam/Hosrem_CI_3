@@ -1,6 +1,6 @@
 
 	<div id="danhbawrapper">
-	<form id="form_DangKy" action="" method="post">
+	<form id="form_DangKy" action="" method="post" accept-charset="utf->
 		<h2 class="dangky_title">ĐĂNG KÝ THÔNG TIN</h2>
 		<div class="left">
 			<label class="lbl_danhba">Upload hình đại diện</label><br />
@@ -8,7 +8,6 @@
 				<div id="upload-demo" style="width:200px"></div>
 				<a class="chonAnh" style="font-weight: bold; padding-right: 10px; cursor: pointer;"> Chọn ảnh </a>
 				<input type="file" style="display: none" id="upload" name="hinhanh" value="Chèn ảnh">
-
 				<!--<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>-->
 				<img class="xoay" title="xoay ảnh" height="25px" src="<?php echo base_url() ?>/public/images/rotate.png" />
 				<br/>
@@ -18,7 +17,7 @@
 				<input type="text" name="cauchamngon" value="<?php echo set_value('cauchamngon'); ?>" />
 			</div>
 			<div >
-				<input style="display: none" type="text" id="txtHinhAnh" name="txtHinhAnh" value="<?php echo set_value('txtHinhAnh'); ?>" />
+				<input  type="text" class="txtImage" style="display: none" name="txtImage" value="heee" />
 			</div>
 		</div>
 		<div class="right">
@@ -72,6 +71,7 @@
 				</textarea>
 			</div>
 			<input type="button" class="float-right input_hoanthanh" name="submit" value="Hoàn thành"/>
+			<input type="submit" class="float-right input_hoanthanh_1" style="display: none" name="submit" value="Hoàn thành_1"/>
 			<input type="button" class="float-right input_dangky" name="xemthu" value="Xem thử"/>
 		</div>
 	</form>
@@ -101,8 +101,12 @@ $(document).ready(function() {
 				success: function (data) {
 					html = '<img src="' + resp + '" />';
 					//$("#upload-demo-i").html(html);
-					$("#txtHinhAnh").val(data);
-					$("#form_DangKy").submit();
+					$(".txtImage").val(data);
+					//document.getElementsByClassName("txtImage").value = data;
+					console.log($(".txtImage").val());
+					setTimeout(function(){
+						$(".input_hoanthanh_1").trigger('click');
+					}, 500);
 				}
 			});
 		});
@@ -174,8 +178,6 @@ $(document).ready(function() {
 	    }
 	    reader.readAsDataURL(this.files[0]);
 	});
-
-
 });
 </script>
- <script src="http://t4t5.github.io/sweetalert/dist/sweetalert-dev.js"></script>
+<script src="http://t4t5.github.io/sweetalert/dist/sweetalert-dev.js"></script>
