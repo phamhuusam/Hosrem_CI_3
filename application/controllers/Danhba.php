@@ -47,6 +47,7 @@ class Danhba extends CI_Controller {
 				"CongTacBaoCao" => $this->input->post("congtacbaocao"),
 				"NghienCuuNoiBat" => $this->input->post("nghiencuunoibat"),
 				"HinhAnh" => $this->input->post("txtImage"),
+				"Display" => 1
 			);
 			$this->MBacSi->InsertDanhba($data);
 			redirect("danhba/success#");

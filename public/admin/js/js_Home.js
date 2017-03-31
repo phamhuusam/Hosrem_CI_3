@@ -6,6 +6,7 @@ var _global = {
 $(document).ready(function() {
   var table_ChuaDuyet = $('#table_ChuaDuyet').DataTable({
     data: dataSet_ChuaDuyet,
+    "aaSorting": [],
     columns: [{
       title: "Id"
     }, {
@@ -19,7 +20,11 @@ $(document).ready(function() {
     }, {
       title: "Điện thoại"
     }, {
-      title: "Trạng thái"
+      title: "Ngày đăng ký"
+    }, {
+      title: "Ngày duyệt"
+    }, {
+      title: "Tool"
     }],
 
     columnDefs: [{ // Money columns
@@ -29,12 +34,20 @@ $(document).ready(function() {
         return valueReturn;
       }
     }, { // Money columns
-      "targets": -1,
+      "targets": -2,
       "render": function(data, type, row) {
         var valueReturn = "<a class= 'classGreen'> Duyệt</a> | <a class= 'classBlue'>Không duyệt</a> | <a class= 'classRed'>Treo</a>";
         valueReturn += "<div class='panel_KhongDuyet' style='padding-top: 5px; display:none'> <input  placeHolder='Lý do không duyệt' /> <button class='button_Khongduyet'>OK</button></div>";
         valueReturn += "<div class='panel_Treo' style='padding-top: 5px; display:none'> <input  placeHolder='Lý do treo' /> <button class='button_Treo'>OK</button></div>";
         return valueReturn;
+      }
+    }, {
+      "targets": -1,
+      "render": function(data, type, row){
+        var mClass ="glyphicon glyphicon-eye-open";
+        if(row[8] == 0)
+          mClass = "glyphicon glyphicon-eye-close";
+        return "<a class='dislay_bacsi' href='#'><span class='" + mClass+ "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
       }
     }]
 
@@ -81,6 +94,25 @@ $(document).ready(function() {
       case 'classRed':
         tagets_1.fadeOut(200);
         tagets_2.fadeIn(200);
+        break;
+
+      case 'dislay_bacsi':
+        if(data[8] == 1) { //đang show giờ không muốn show nữa
+          if (confirm('Bạn đồng ý muốn ẩn bác sĩ này?')) {
+            //do something.
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-open" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-close" ).fadeIn(1000);
+            data[8] = 0;
+            call_OnUpdateRecord_2({'Id': data[0], 'Display': data[8]});
+
+          }
+        } else { // đang ẩn muốn show.
+          if (confirm('Bạn đồng ý muốn hiện bác sĩ này?')) {
+            //do something.
+            data[8] = 1;
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-close" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-open" ).fadeIn(1000);
+             call_OnUpdateRecord_2({'Id': data[0], 'Display': data[8]});
+          }
+        }
         break;
     }
   });
@@ -130,6 +162,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   var table_ChuaDuyet = $('#table_DaDuyet').DataTable({
     data: dataSet_DaDuyet,
+    "aaSorting": [],
     columns: [{
       title: "Id"
     }, {
@@ -143,7 +176,7 @@ $(document).ready(function() {
     }, {
       title: "Điện thoại"
     }, {
-      title: "Tool"
+      title: "Ngày duyệt"
     }],
     columnDefs: [{ // Money columns
       "targets": 2,
@@ -171,6 +204,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   var table_KhongDuyet = $('#table_KhongDuyet').DataTable({
     data: dataSet_KhongDuyet,
+    "aaSorting": [],
     columns: [{
       title: "Id"
     }, {
@@ -184,7 +218,7 @@ $(document).ready(function() {
     }, {
       title: "Điện thoại"
     }, {
-      title: "Tool"
+      title: "Ngày duyệt"
     }],
     columnDefs: [{ // Money columns
       "targets": 2,
@@ -218,6 +252,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   var table_Treo = $('#table_Treo').DataTable({
     data: dataSet_Treo,
+    "aaSorting": [],
     columns: [{
       title: "Id"
     }, {
@@ -231,7 +266,7 @@ $(document).ready(function() {
     }, {
       title: "Điện thoại"
     }, {
-      title: "Tool"
+      title: "Ngày duyệt"
     }],
     columnDefs: [{ // Money columns
       "targets": 2,
@@ -322,3 +357,14 @@ $(document).ready(function() {
   });
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+
+function call_OnUpdateRecord_2(mData) {
+  onUpdateRecord_2(mData, function(result, flag) {
+    if (flag) {           
+      //alert_CapNhatThanhCong();
+    } else {
+      alert_CapNhatThatBai();
+    }
+  }, _global);
+}

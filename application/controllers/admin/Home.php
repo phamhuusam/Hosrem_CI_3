@@ -52,4 +52,16 @@ class Home extends CI_Controller {
 		// trả về dữ liệu bằng echo không bằng return;
 		echo "true";
 	}
+
+	public function onUpdateRecord_2() {//ngu như bò do không tính trước.... đáng lý phải tạo 2 file	
+		if (isset($_POST["data"])) {
+			$data = $_POST["data"];			
+			$myArray = json_decode($data);
+			$data = array(
+				'Id' => $myArray->Id,
+				'Display' => $myArray->Display,
+			);
+			$this->MBacSi->UpdateBacSi($data);
+		}
+	}
 }

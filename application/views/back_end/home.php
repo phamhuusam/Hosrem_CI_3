@@ -12,14 +12,14 @@ foreach ($dsBacSi_ChuaDuyet as $bacsi) {
   <script type="text/javascript">
       var mRecord_ChuaDuyet = [];
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['Id']) ?>');
-      mRecord_ChuaDuyet.push('<?php echo ($bacsi['Ten']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['FullName']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['HinhAnh']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['Email']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['DonViCongTac']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['DienThoai']) ?>');
-      mRecord_ChuaDuyet.push('<?php echo ($bacsi['FullName']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['NgayCapNhatTinhTrang']) ?>');
       mRecord_ChuaDuyet.push('<?php echo ($bacsi['LyDoTuChoi']) ?>');
+      mRecord_ChuaDuyet.push('<?php echo ($bacsi['Display']) ?>');
       // push vao dataset
       dataSet_ChuaDuyet.push(mRecord_ChuaDuyet);
 
@@ -35,7 +35,7 @@ foreach ($dsBacSi_DaDuyet as $bacsi) {
   <script type="text/javascript">
       var mRecord_DaDuyet = [];
       mRecord_DaDuyet.push('<?php echo ($bacsi['Id']) ?>');
-      mRecord_DaDuyet.push('<?php echo ($bacsi['Ten']) ?>');
+      mRecord_DaDuyet.push('<?php echo ($bacsi['FullName']) ?>');
       mRecord_DaDuyet.push('<?php echo ($bacsi['HinhAnh']) ?>');
       mRecord_DaDuyet.push('<?php echo ($bacsi['Email']) ?>');
       mRecord_DaDuyet.push('<?php echo ($bacsi['DonViCongTac']) ?>');

@@ -11,6 +11,19 @@ function onUpdateRecord(_data, callback, _global) {
         });
 }
 
+function onUpdateRecord_2(_data, callback, _global) {
+    var _data  = JSON.stringify(_data);
+    $.post(base_url_original + _global._pageAjax + "/onUpdateRecord_2", {
+          'data' : _data
+        })
+        .done(function(result) {
+            callback(result, true);
+        })
+        .fail(function() {
+             callback(result, false);
+        });
+}
+
 function alert_CapNhatThanhCong() {
     alert('Bạn đã cập nhật thành công');
 }

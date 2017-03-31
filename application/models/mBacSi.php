@@ -12,6 +12,7 @@ class MBacSi extends CI_Model {
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');		
 		$this->db->where('tinhtrang.id', 1);
+		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}	
@@ -23,7 +24,9 @@ class MBacSi extends CI_Model {
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
 		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
+		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
+
 		return $query->result_array();
 	}
 
@@ -34,10 +37,11 @@ class MBacSi extends CI_Model {
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
 		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
-
 		$this->db->where('tinhtrang.id', 2);
 		$this->db->where('FlagHienTai', 1); // chỉ lấy quá trình hiện tại (không lấy quá trình ở quá khứ)
+		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
+		//var_dump($query->result_array());		
 		return $query->result_array();
 	}
 
@@ -50,6 +54,7 @@ class MBacSi extends CI_Model {
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$this->db->where('tinhtrang.id', 1);
 		$this->db->where('FlagHienTai', 1);
+		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
@@ -63,6 +68,7 @@ class MBacSi extends CI_Model {
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$this->db->where('tinhtrang.id', 3);
 		$this->db->where('FlagHienTai', 1);
+		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
@@ -76,6 +82,7 @@ class MBacSi extends CI_Model {
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$this->db->where('tinhtrang.id', 4);
 		$this->db->where('FlagHienTai', 1);
+		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
@@ -101,6 +108,12 @@ class MBacSi extends CI_Model {
 			'NguoiDuyet'=>1
 		);
 		$this->db->insert('chitietbacsi_tinhtrang', $data_2);		
+	}
+
+	public function UpdateBacSi($data){
+
+		$this->db->where("Id", $data["Id"]);
+		$this->db->update('bacsi', $data);
 	}
 }
 ?>
