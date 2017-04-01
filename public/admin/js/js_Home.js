@@ -45,7 +45,7 @@ $(document).ready(function() {
       "targets": -1,
       "render": function(data, type, row){
         var mClass ="glyphicon glyphicon-eye-open";
-        if(row[8] == 0)
+        if(row[9] == 0)
           mClass = "glyphicon glyphicon-eye-close";
         return "<a class='dislay_bacsi' href='#'><span class='" + mClass+ "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
       }
@@ -80,7 +80,6 @@ $(document).ready(function() {
             alert_CapNhatThanhCong();
 
           } else {
-            console.log(result);
             alert_CapNhatThatBai();
           }
         }, _global);
@@ -97,20 +96,20 @@ $(document).ready(function() {
         break;
 
       case 'dislay_bacsi':
-        if(data[8] == 1) { //đang show giờ không muốn show nữa
+        if(data[9] == 1) { //đang show giờ không muốn show nữa
           if (confirm('Bạn đồng ý muốn ẩn bác sĩ này?')) {
             //do something.
             $(this).find("span").removeClass( "glyphicon glyphicon-eye-open" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-close" ).fadeIn(1000);
-            data[8] = 0;
-            call_OnUpdateRecord_2({'Id': data[0], 'Display': data[8]});
+            data[9] = 0;
+            call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
 
           }
         } else { // đang ẩn muốn show.
           if (confirm('Bạn đồng ý muốn hiện bác sĩ này?')) {
             //do something.
-            data[8] = 1;
+            data[9] = 1;
             $(this).find("span").removeClass( "glyphicon glyphicon-eye-close" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-open" ).fadeIn(1000);
-             call_OnUpdateRecord_2({'Id': data[0], 'Display': data[8]});
+             call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
           }
         }
         break;
@@ -160,7 +159,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  var table_ChuaDuyet = $('#table_DaDuyet').DataTable({
+  var table_DaDuyet = $('#table_DaDuyet').DataTable({
     data: dataSet_DaDuyet,
     "aaSorting": [],
     columns: [{
@@ -177,6 +176,8 @@ $(document).ready(function() {
       title: "Điện thoại"
     }, {
       title: "Ngày duyệt"
+    }, {
+      title: "Tool"
     }],
     columnDefs: [{ // Money columns
       "targets": 2,
@@ -185,7 +186,7 @@ $(document).ready(function() {
         return valueReturn;
       }
     }, { // Money columns
-      "targets": -1,
+      "targets": -2,
       "render": function(data, type, row) {
         var MnguoiDuyet = row[6];
         var valueReturn = "";
@@ -194,7 +195,43 @@ $(document).ready(function() {
         valueReturn += " | " + row[7];
         return valueReturn;
       }
+    }, {
+      "targets": -1,
+      "render": function(data, type, row){
+        var mClass ="glyphicon glyphicon-eye-open";
+        if(row[9] == 0)
+          mClass = "glyphicon glyphicon-eye-close";
+        return "<a class='dislay_bacsi' href='#'><span class='" + mClass+ "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
+      }
     }]
+  });
+
+  // xử lý button submit
+
+//xử lý show textbox
+  $('#table_DaDuyet tbody').on('click', 'a', function() {
+    var className = this.attributes.class.value;
+    var data = table_DaDuyet.row($(this).parents('tr')).data();    
+    switch (className) {
+      case 'dislay_bacsi':
+        if(data[9] == 1) { //đang show giờ không muốn show nữa
+          if (confirm('Bạn đồng ý muốn ẩn bác sĩ này?')) {
+            //do something.
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-open" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-close" ).fadeIn(1000);
+            data[9] = 0;
+            call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
+
+          }
+        } else { // đang ẩn muốn show.
+          if (confirm('Bạn đồng ý muốn hiện bác sĩ này?')) {
+            //do something.
+            data[9] = 1;
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-close" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-open" ).fadeIn(1000);
+             call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
+          }
+        }
+        break;
+    }
   });
 
   $('[data-toggle="tooltip"]').tooltip();
@@ -219,6 +256,8 @@ $(document).ready(function() {
       title: "Điện thoại"
     }, {
       title: "Ngày duyệt"
+    }, {
+      title: "Tool"
     }],
     columnDefs: [{ // Money columns
       "targets": 2,
@@ -227,23 +266,51 @@ $(document).ready(function() {
         return valueReturn;
       }
     }, { // Money columns
-      "targets": -1,
+      "targets": -2,
       "render": function(data, type, row) {
         var MnguoiDuyet = row[6];
         var mLyDo = row[8];
         var valueReturn = "";
         valueReturn += "<a href='#'><span class='glyphicon glyphicon-user table_icon' data-toggle='tooltip' title='Không duyệt bởi: " + MnguoiDuyet + "'></span></a>";
         valueReturn += " | <a href='#'><span class='glyphicon glyphicon-info-sign table_icon' data-toggle='tooltip' title='Lý do: " + mLyDo + "'></span></a>";
-        
-
-        
-        //valueReturn += "<a href='#' data-toggle='tooltip' title='Hooray!'>Hover over me</a>";
         valueReturn += " | " + row[7];
         return valueReturn;
+      }
+    }, {
+      "targets": -1,
+      "render": function(data, type, row){
+        var mClass ="glyphicon glyphicon-eye-open";
+        if(row[9] == 0)
+          mClass = "glyphicon glyphicon-eye-close";
+        return "<a class='dislay_bacsi' href='#'><span class='" + mClass+ "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
       }
     }]
   });
 
+ $('#table_KhongDuyet tbody').on('click', 'a', function() {
+    var className = this.attributes.class.value;
+    var data = table_KhongDuyet.row($(this).parents('tr')).data();    
+    switch (className) {
+      case 'dislay_bacsi':
+        if(data[9] == 1) { //đang show giờ không muốn show nữa
+          if (confirm('Bạn đồng ý muốn ẩn bác sĩ này?')) {
+            //do something.
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-open" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-close" ).fadeIn(1000);
+            data[9] = 0;
+            call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
+
+          }
+        } else { // đang ẩn muốn show.
+          if (confirm('Bạn đồng ý muốn hiện bác sĩ này?')) {
+            //do something.
+            data[9] = 1;
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-close" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-open" ).fadeIn(1000);
+             call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
+          }
+        }
+        break;
+    }
+  });
   $('[data-toggle="tooltip"]').tooltip();
 });
 
@@ -267,6 +334,8 @@ $(document).ready(function() {
       title: "Điện thoại"
     }, {
       title: "Ngày duyệt"
+    }, {
+      title: "Tool"
     }],
     columnDefs: [{ // Money columns
       "targets": 2,
@@ -275,7 +344,7 @@ $(document).ready(function() {
         return valueReturn;
       }
     }, { // Money columns
-      "targets": -1,
+      "targets": -2,
       "render": function(data, type, row) {
         var mLyDo = row[8];
         var MnguoiDuyet = row[6];
@@ -285,6 +354,14 @@ $(document).ready(function() {
         valueReturn += "<br/><a href='#'><span style='color: green;' class='glyphicon glyphicon-user' data-toggle='tooltip' title='Treo bởi " + MnguoiDuyet + "'></span></a>";
         valueReturn += " | " + row[7];
         return valueReturn;
+      }
+    }, {
+      "targets": -1,
+      "render": function(data, type, row){
+        var mClass ="glyphicon glyphicon-eye-open";
+        if(row[9] == 0)
+          mClass = "glyphicon glyphicon-eye-close";
+        return "<a class='dislay_bacsi' href='#'><span class='" + mClass+ "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
       }
     }]
   });
@@ -320,6 +397,25 @@ $(document).ready(function() {
         break;
       case 'classBlue':
         tagets_1.fadeIn(200);
+        break;
+
+      case 'dislay_bacsi':
+        if(data[9] == 1) { //đang show giờ không muốn show nữa
+          if (confirm('Bạn đồng ý muốn ẩn bác sĩ này?')) {
+            //do something.
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-open" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-close" ).fadeIn(1000);
+            data[9] = 0;
+            call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
+
+          }
+        } else { // đang ẩn muốn show.
+          if (confirm('Bạn đồng ý muốn hiện bác sĩ này?')) {
+            //do something.
+            data[9] = 1;
+            $(this).find("span").removeClass( "glyphicon glyphicon-eye-close" ).fadeOut(100).addClass( "glyphicon glyphicon-eye-open" ).fadeIn(1000);
+             call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
+          }
+        }
         break;
     }
   });
