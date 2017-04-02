@@ -115,5 +115,16 @@ class MBacSi extends CI_Model {
 		$this->db->where("Id", $data["Id"]);
 		$this->db->update('bacsi', $data);
 	}
+
+	public function getBacSiById($Id) {
+		$this->db->select('bacsi.*,NgayCapNhatTinhTrang, LyDoTuChoi, FullName');
+		$this->db->from('bacsi');
+		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('nguoidung', 'nguoidung.id = chitietbacsi_tinhtrang.NguoiDuyet');
+		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
+		$this->db->where('bacsi.id', $Id);
+		$query = $this->db->get();
+		return $query->row();
+	}
 }
 ?>

@@ -24,6 +24,19 @@ function onUpdateRecord_2(_data, callback, _global) {
         });
 }
 
+function onGetRecordById(_data, callback, _global) {
+    var _data = JSON.stringify(_data);
+     $.post(base_url_original + _global._pageAjax + "/onGetRecordById", {
+          'data' : _data
+        })
+        .done(function(result) {
+            callback(JSON.parse(result), true);
+        })
+        .fail(function() {
+             callback(JSON.parse(result), false);
+        });
+}
+
 function alert_CapNhatThanhCong() {
     alert('Bạn đã cập nhật thành công');
 }

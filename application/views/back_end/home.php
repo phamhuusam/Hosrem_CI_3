@@ -145,3 +145,36 @@ foreach ($dsBacSi_Treo as $bacsi) {
   </div>
 </div>
 <script src="<?php echo base_url() ?>public/admin/js/js_Home.js"></script>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="detail_form">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Thông tin chi tiết bác sĩ</h4>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="container">
+          <div class="row">
+              <div class="col-4">
+                  <img id="HinhAnh" width="200px">
+              </div> 
+              <div class="col-8">
+              dfdfdf
+              </div>
+
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary">Lưu</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

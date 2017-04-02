@@ -47,7 +47,10 @@ $(document).ready(function() {
         var mClass ="glyphicon glyphicon-eye-open";
         if(row[9] == 0)
           mClass = "glyphicon glyphicon-eye-close";
-        return "<a class='dislay_bacsi' href='#'><span class='" + mClass+ "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
+
+        var mString = "<a class='dislay_bacsi' href='#'><span class='" + mClass+ "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>";
+        mString += " | <a class='display_detail'> <span class='glyphicon glyphicon-info-sign' data-toggle='tooltip' title='Thông tin chi tiết bác sĩ'></span></a>";
+        return mString;
       }
     }]
 
@@ -112,6 +115,11 @@ $(document).ready(function() {
              call_OnUpdateRecord_2({'Id': data[0], 'Display': data[9]});
           }
         }
+        break;
+
+        case 'display_detail': 
+          var idBacSi = data[0];
+          onShowFormDetail(idBacSi);
         break;
     }
   });
@@ -455,6 +463,25 @@ $(document).ready(function() {
 });
 
 
+//function chung
+
+
+function onShowFormDetail(idBacSi) {
+
+  onGetRecordById({'Id': idBacSi}, function(result, flag) {
+      if(flag) {
+        onSetForm(result);
+        $('#detail_form').modal('show');  
+      } else {
+        alert("Lấy thông tin bác sĩ thất bại");
+      }
+  }, _global);
+}
+
+
+
+
+// function call update
 function call_OnUpdateRecord_2(mData) {
   onUpdateRecord_2(mData, function(result, flag) {
     if (flag) {           
@@ -463,4 +490,9 @@ function call_OnUpdateRecord_2(mData) {
       alert_CapNhatThatBai();
     }
   }, _global);
+}
+
+function onSetForm(result) {
+  debugger;
+  $("#HinhAnh").attr("src",  base_url_original + "public/images/hinh_bacsi/" + result.HinhAnh)
 }

@@ -64,4 +64,16 @@ class Home extends CI_Controller {
 			$this->MBacSi->UpdateBacSi($data);
 		}
 	}
+
+	public function onGetRecordById() {
+		if (isset($_POST["data"])) {
+			$data = $_POST["data"];			
+			$myArray = json_decode($data);
+			$data = array(
+				'Id' => $myArray->Id,
+			);
+			$dataReturn = $this->MBacSi->getBacSiById($myArray->Id);
+			echo json_encode($dataReturn);
+		}
+	}
 }
