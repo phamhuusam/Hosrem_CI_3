@@ -493,6 +493,5 @@ function call_OnUpdateRecord_2(mData) {
 }
 
 function onSetForm(result) {
-  debugger;
   $("#HinhAnh").attr("src",  base_url_original + "public/images/hinh_bacsi/" + result.HinhAnh)
 }

@@ -156,20 +156,23 @@ foreach ($dsBacSi_Treo as $bacsi) {
       </div>
       <div class="modal-body">
 
+      <form>
 
-        <div class="container">
-          <div class="row">
-              <div class="col-4">
-                  <img id="HinhAnh" width="200px">
-              </div> 
-              <div class="col-8">
-              dfdfdf
+            <div class="row">
+              <div class="col-sm-3">
+                  <img id="HinhAnh" width="100%">
+
               </div>
-
-          </div>
+              <div class="col-sm-9">
+                <div class="form-group">
+                    <label for="chamngon">Châm ngôn yêu thích:</label>
+                    <input type="text" class="form-control" id="chamngon">
+                  </div>
+              </div>
         </div>
 
 
+      </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
