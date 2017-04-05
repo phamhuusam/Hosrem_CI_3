@@ -9,6 +9,19 @@
 	<link href="<?php echo base_url() ?>public/admin/css/css.css" rel="stylesheet">
 	<script src="<?php echo base_url() ?>public/admin/js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo base_url() ?>public/admin/js/js_Parent.js"></script>
+	<script src="<?php echo base_url() ?>public/js/tinymce/tinymce.min.js  "></script>
+	<script>
+		tinymce.init({
+			selector: '.danhba_textarea',
+			height: 100,
+			menubar: false,
+			statusbar: false,
+			plugins: "advlist lists ",
+			toolbar: 'bold italic underline | bullist numlist outdent indent',
+		});
+		var base_url_original = "<?php echo base_url() ?>";
+	</script>
+	  
 
 	<style type="text/css">
 		body{
