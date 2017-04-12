@@ -11,6 +11,7 @@
 				<!--<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>-->
 				<img class="xoay" title="xoay ảnh" height="25px" src="<?php echo base_url() ?>/public/images/rotate.png" />
 				<br/>
+				<input name="userImage" type="file" class="inputFile"/>
 			</div>
 			<div class="cauchamngon">
 				<label class="lbl_danhba">Câu châm ngôn yêu thích</label><br />

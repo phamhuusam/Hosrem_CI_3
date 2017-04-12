@@ -67,16 +67,7 @@ div.clear{
     transition-duration: 0.2s;		
 
 }
-span.title{
-	background:#1292de;
-	position:absolute;
-	width:300px;
-	height:90px;
 
-	bottom:5px;
-	cursor:pointer;
-		padding:5px;
-}
 span.title:hover{
 	background:#0260ca;
 }
@@ -305,10 +296,10 @@ span.title{
 	position:absolute;
 	width:305px;
 	height:90px;
-
-	bottom:4px;
 	cursor:pointer;
-		padding:5px;
+	padding:5px;
+	bottom:0px;
+	border-bottom:2px solid #ccc;
 }
 span.title:hover{
 	background:#0260ca;
