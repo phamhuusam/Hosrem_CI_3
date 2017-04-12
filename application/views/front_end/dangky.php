@@ -65,7 +65,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="showhide">
-				<input type="checkbox" name="showhide" value="showhide" style="margin-right:5px">Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)<br>
+				<input type="checkbox" id='sam_1' name="showhide" value="showhide" style="margin-right:5px">Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)<br>
 			</div>
 			<div class="clear"></div>
 			<div class="div_quatrinhhoctap">
@@ -98,22 +98,67 @@
 			</div>
 			<input type="button" class="float-right input_hoanthanh" name="submit" value="Hoàn thành"/>
 			<input type="submit" class="float-right input_hoanthanh_1" style="display: none" name="submit" value="Hoàn thành_1"/>
-			<input type="button" class="float-right input_dangky" name="xemthu" value="Xem thử"/>
+			<input type="button" class="float-right input_dangky" id='Id_XemThu' name="xemthu" value="Xem thử"/>
 		</div>
 	</form>
 	</div>
 <script type="text/javascript">
 
 $(document).ready(function() {
+	$('#Id_XemThu').click(function() {
+		var  file = $('#upload')[0].files[0]
+		if(file == null) {
+		 	alert("Bạn chưa chọn hình ảnh đại diện");
+			return false;
+		}
+		else {
+			$uploadCrop.croppie('result', {
+				type: 'canvas',
+				quality: '1',
+				size: {
+				width: 800,
+				height: 800
+				}
+			}).then(function (resp) {
+				$("#mHinhAnh").attr("src", resp);
+				//$("#HinhAnh").val(resp);
+			});
+		}
+
+		$('#mCauChamNgon').html($('input[name="cauchamngon"]').val());
+		$('#mTen').html($('input[name="hoten"]').val());
+		$('#mNamSinh').html($('input[name="namsinh"]').val());
+		$('#mGioiTinh').html($('input[name="nam"]:checked').val());
+		$('#mDonViCongTac').html($('input[name="donvicongtac"]').val());
+		$('#mTinh').html($('input[name="TinhThanh"]').val());
+		$('#mDienThoai').html($('input[name="dt"]').val());
+		$('#mEmail').html($('input[name="email"]').val());
+		$('#mFacebook').html($('input[name="facebook"]').val());
+		$('#mQuaTrinhHocTapVaCongTac').html(tinyMCE.get('quatrinhhoctap').getContent());
+		$('#mKinhNghiemCongTac').html(tinyMCE.get('kinhnghiemcongtac').getContent());
+		$('#mCongTacBaoCao').html(tinyMCE.get('congtacbaocao').getContent());
+		$('#mBaiVietChuyenNganh').html(tinyMCE.get('baivietchuyennganh').getContent());
+		$('#mNghienCuuNoiBat').html(tinyMCE.get('nghiencuunoibat').getContent());
+
+
+		var mShow_Info =  $('#sam_1').prop('checked');
+		debugger
+		if(mShow_Info) {
+			$('#sam_2').prop('checked', true);
+		} else {
+			$('#sam_2').prop('checked', false);
+		}
+
+		$("#detail_form").modal('show');
+	});
+
+
 	$('.input_hoanthanh').click(function(e){
 		var  file = $('#upload')[0].files[0]
 		if(file == null) {
 		 	alert("Bạn chưa chọn hình ảnh đại diện");
 			return false;
 		}
-
-
-
 		else {
 			$uploadCrop.croppie('result', {
 			type: 'canvas',
@@ -131,7 +176,7 @@ $(document).ready(function() {
 					html = '<img src="' + resp + '" />';
 					//$("#upload-demo-i").html(html);
 					$(".txtImage").val(data);
-					//document.getElementsByClassName("txtImage").value = data;
+					document.getElementsByClassName("HinhAnh").value = data;
 					console.log($(".txtImage").val());
 					setTimeout(function(){
 						if(checkValidate() == true) {
@@ -270,3 +315,119 @@ function checkValidate() {
 }
 </script>
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert-dev.js"></script>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="detail_form">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title">Thông tin chi tiết bác sĩ</h4>
+</div>
+<div class="modal-body">
+<form>
+  <div class="row">
+    <div class="col-sm-3">
+      <img id="mHinhAnh" width="100%">
+    </div>
+
+    <div class="col-sm-9" style="padding-left: 0px; ">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="CauChamNgon">Châm ngôn yêu thích:</label> <span id="mCauChamNgon"></span>
+        </div>
+      </div>
+      <!-- Dành cho thông tin bác sĩ !-->
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="FullName">Họ và tên:</label> <span id="mTen"></span>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="NamSinh">Năm sinh:</label> <span id="mNamSinh"></span>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="GioiTinh">Giới tính:</label> <span id="mGioiTinh"></span>
+        </div>
+      </div>
+      <!----------------------------------------------------!-->
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="DonViCongTac">Đơn vị công tác:</label> <span id="mDonViCongTac"></span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="TinhThanh">Tỉnh thành:</label> <span id="mTinh"></span>
+        </div>
+      </div>
+
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="DienThoai">Điện thoại:</label> <span id="mDienThoai"></span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="Email">Địa chỉ mail:</label> <span id="mEmail"></span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="facebook">Địa chỉ facebook:</label> <span id="mFacebook"></span>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <label><input type="checkbox" id='sam_2'> Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)</label>
+      </div>
+
+    </div>
+    <!-- giải phóng ra ngoài tấm hình-->
+
+    <!-- quá trình học tập -->
+    <div class="col-sm-12" style="margin-top: 10px">
+      <div class="form-group">
+        <label for="QuaTrinhHocTapVaCongTac">Quá trình học tập:</label><span id="mQuaTrinhHocTapVaCongTac"></span>
+
+      </div>
+    </div>
+    <!-- quá trình công tác-->
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="KinhNghiemCongTac">Kinh nghiệm công tác:</label><span id="mKinhNghiemCongTac"></span>
+      </div>
+    </div>
+    <div style="text-align: center; font-size: 18px; color: #337ab7"> HOẠT ĐỘNG CHUYÊN NGÀNH</div>
+    <!-- quá trình công tác-->
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="chamngon">Bài viết / Sách chuyên ngành:</label><span id="mBaiVietChuyenNganh"></span>
+      </div>
+    </div>
+    <!-- quá trình công tác-->
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="chamngon">Công tác báo cáo / Giảng dạy:</label><span id="mCongTacBaoCao"></span>
+      </div>
+    </div>
+    <!-- quá trình công tác-->
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="chamngon">Nghiên cứu nổi bật:</label><span id="mNghienCuuNoiBat"></span>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

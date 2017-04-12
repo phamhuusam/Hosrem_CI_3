@@ -200,7 +200,7 @@ dataSet_Treo.push(mRecord_Treo);
         </div>
       </div>
       <div class="col-sm-12">
-        <label><input type="checkbox" value=""> Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)</label>
+        <label><input id='m_Id_Show_Info' type="checkbox"> Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)</label>
       </div>
     </div>
     <!-- quá trình học tập -->
