@@ -1,9 +1,17 @@
 var _global = {
-  _pageAjax: 'index.php/admin/home'
+  _pageAjax: 'index.php/admin/home',
+  _data: null
 };
 
 
 $(document).ready(function() {
+
+  $('#btn_SaveInfo').click(function(){
+      alert("đfdf");
+      onUpdateFullRecord();
+  });
+
+
   var table_ChuaDuyet = $('#table_ChuaDuyet').DataTable({
     data: dataSet_ChuaDuyet,
     "aaSorting": [],
@@ -484,7 +492,7 @@ $(document).ready(function() {
     }
   });
   $('[data-toggle="tooltip"]').tooltip();
-  debugger
+  
 });
 
 
@@ -519,20 +527,59 @@ function call_OnUpdateRecord_2(mData) {
 }
 
 function onSetForm(result) {
+  
   console.log(result);
   $("#HinhAnh").attr("src", base_url_original + "public/images/hinh_bacsi/" + result.HinhAnh);
   $('#CauChamNgon').val(result.CauChamNgon);
-  $('#FullName').val(result.FullName);
-  //$('#NamSinh').val(result.NamSinh);
-  //$('#GioiTinh').val(result.GioiTinh);
+  $('#Ten').val(result.Ten);
+  $('#NamSinh').val(result.NamSinh);
+  RadionButtonSelectedValueSet('GioiTinh', result.GioiTinh);
   $('#DonViCongTac').val(result.DonViCongTac);
-  $('#TinhThanh').val(result.TinhThanh);
+  
   $('#DienThoai').val(result.DienThoai);
   $('#Email').val(result.Email);
   $('#Facebook').val(result.Facebook);
-  $('#TinhThanh').val(result.TinhThanh);
+  $("select[name='TinhThanh']").val(result.Tinh)
 
   tinyMCE.get('KinhNghiemCongTac').setContent(result.KinhNghiemCongTac);
   tinyMCE.get('NghienCuuNoiBat').setContent(result.NghienCuuNoiBat);
-  tinyMCE.get('QuaTrinhHocTapVaCongTac').setContent(result.QuaTrinhHocTapVaCongTac);  
+  tinyMCE.get('QuaTrinhHocTapVaCongTac').setContent(result.QuaTrinhHocTapVaCongTac); 
+  tinyMCE.get('BaiVietChuyenNganh').setContent(result.BaiVietChuyenNganh);  
+  tinyMCE.get('CongTacBaoCao').setContent(result.CongTacBaoCao); 
+
+  _global._data = result;
 }
+
+
+
+function RadionButtonSelectedValueSet(name, SelectdValue) {
+    $('input[name="' + name+ '"][value="' + SelectdValue + '"]').prop('checked', true);
+}
+
+
+function onUpdateFullRecord() {
+  var mData  =  _global._data;
+  mData = onGetValueRecord(mData);
+  call_OnUpdateRecord_2(mData);
+}
+
+function onGetValueRecord(mData) {
+  mData.CauChamNgon = $('#CauChamNgon').val();
+  mData.Ten = $('#Ten').val();
+  mData.NamSinh =  $('#NamSinh').val()
+  mData.DonViCongTac =  $('#DonViCongTac').val()
+  mData.DienThoai  = $('#DienThoai').val();
+  mData.Email  = $('#Email').val();
+  mData.Facebook = $('#Facebook').val();
+  mData.Tinh = $("select[name='TinhThanh']").val();
+  mData.GioiTinh = $('input[name=GioiTinh]:checked').val();
+
+  mData.KinhNghiemCongTac = tinyMCE.get('KinhNghiemCongTac').getContent();
+  mData.NghienCuuNoiBat = tinyMCE.get('NghienCuuNoiBat').getContent();
+  mData.QuaTrinhHocTapVaCongTac = tinyMCE.get('QuaTrinhHocTapVaCongTac').getContent();
+  mData.BaiVietChuyenNganh = tinyMCE.get('BaiVietChuyenNganh').getContent();
+  mData.CongTacBaoCao = tinyMCE.get('CongTacBaoCao').getContent();
+  return mData;
+
+}
+

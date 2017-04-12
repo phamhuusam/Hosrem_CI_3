@@ -6,11 +6,11 @@ var dataSet_Treo= [];
 </script>
 <?php
 foreach ($dsBacSi_ChuaDuyet as $bacsi) {
-?>
+	?>
 <script type="text/javascript">
 var mRecord_ChuaDuyet = [];
 mRecord_ChuaDuyet.push('<?php echo ($bacsi['Id']) ?>');
-mRecord_ChuaDuyet.push('<?php echo ($bacsi['FullName']) ?>');
+mRecord_ChuaDuyet.push('<?php echo ($bacsi['Ten']) ?>');
 mRecord_ChuaDuyet.push('<?php echo ($bacsi['HinhAnh']) ?>');
 mRecord_ChuaDuyet.push('<?php echo ($bacsi['Email']) ?>');
 mRecord_ChuaDuyet.push('<?php echo ($bacsi['DonViCongTac']) ?>');
@@ -27,7 +27,7 @@ dataSet_ChuaDuyet.push(mRecord_ChuaDuyet);
 ?>
 <?php
 foreach ($dsBacSi_DaDuyet as $bacsi) {
-?>
+	?>
 <script type="text/javascript">
 var mRecord_DaDuyet = [];
 mRecord_DaDuyet.push('<?php echo ($bacsi['Id']) ?>');
@@ -48,7 +48,7 @@ dataSet_DaDuyet.push(mRecord_DaDuyet);
 ?>
 <?php
 foreach ($dsBacSi_KhongDuyet as $bacsi) {
-?>
+	?>
 <script type="text/javascript">
 var mRecord_KhongDuyet = [];
 mRecord_KhongDuyet.push('<?php echo ($bacsi['Id']) ?>');
@@ -69,7 +69,7 @@ dataSet_KhongDuyet.push(mRecord_KhongDuyet);
 ?>
 <?php
 foreach ($dsBacSi_Treo as $bacsi) {
-?>
+	?>
 <script type="text/javascript">
 var mRecord_Treo = [];
 mRecord_Treo.push('<?php echo ($bacsi['Id']) ?>');
@@ -146,7 +146,7 @@ dataSet_Treo.push(mRecord_Treo);
       <div class="col-sm-6">
         <div class="form-group">
           <label for="FullName">Họ và tên:</label>
-          <input type="text" class="form-control" id="FullName">
+          <input type="text" class="form-control" id="Ten">
         </div>
       </div>
       <div class="col-sm-3">
@@ -158,7 +158,9 @@ dataSet_Treo.push(mRecord_Treo);
       <div class="col-sm-3">
         <div class="form-group">
           <label for="GioiTinh">Giới tính:</label>
-          <input type="text" class="form-control" id="GioiTinh">
+          <br/>
+          <label class="radio-inline"><input type="radio"  value='Nam' name="GioiTinh">Nam</label>
+          <label class="radio-inline"><input type="radio"  value= 'Nữ' name="GioiTinh">Nữ</label>
         </div>
       </div>
       <!----------------------------------------------------!-->
@@ -171,7 +173,8 @@ dataSet_Treo.push(mRecord_Treo);
       <div class="col-sm-6">
         <div class="form-group">
           <label for="TinhThanh">Tỉnh thành:</label>
-          <input type="text" class="form-control" id="TinhThanh">
+          <?php echo form_dropdown('TinhThanh', $TinhThanh, 0, 'class="form-control"'); ?>
+
         </div>
       </div>
     </div>
@@ -205,17 +208,14 @@ dataSet_Treo.push(mRecord_Treo);
       <div class="form-group">
         <label for="QuaTrinhHocTapVaCongTac">Quá trình học tập:</label>
         <textarea rows="2" cols="50" name="QuaTrinhHocTapVaCongTac" class="danhba_textarea" >
-        
         </textarea>
       </div>
-      
     </div>
     <!-- quá trình công tác-->
     <div class="col-sm-12">
       <div class="form-group">
         <label for="KinhNghiemCongTac">Kinh nghiệm công tác:</label>
         <textarea rows="2" cols="50" name="KinhNghiemCongTac" class="danhba_textarea">
-        
         </textarea>
       </div>
     </div>
@@ -224,41 +224,32 @@ dataSet_Treo.push(mRecord_Treo);
     <div class="col-sm-12">
       <div class="form-group">
         <label for="chamngon">Bài viết / Sách chuyên ngành:</label>
-        <textarea rows="2" cols="50" name="baivietsachchuyenngah" class="danhba_textarea">
-        
+        <textarea rows="2" cols="50" name="BaiVietChuyenNganh" class="danhba_textarea">
         </textarea>
       </div>
     </div>
-
-
     <!-- quá trình công tác-->
     <div class="col-sm-12">
       <div class="form-group">
         <label for="chamngon">Công tác báo cáo / Giảng dạy:</label>
-        <textarea rows="2" cols="50" name="congtacbaocaogiangday" class="danhba_textarea">
-        
+        <textarea rows="2" cols="50" name="CongTacBaoCao" class="danhba_textarea">
         </textarea>
       </div>
     </div>
-
-
     <!-- quá trình công tác-->
     <div class="col-sm-12">
       <div class="form-group">
         <label for="chamngon">Nghiên cứu nổi bật:</label>
         <textarea rows="2" cols="50" name="NghienCuuNoiBat" class="danhba_textarea">
-        
         </textarea>
       </div>
     </div>
-
-
   </div>
 </form>
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-<button type="button" class="btn btn-primary">Lưu</button>
+<button type="button" class="btn btn-primary" id="btn_SaveInfo">Lưu</button>
 </div>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
