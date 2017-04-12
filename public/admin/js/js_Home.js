@@ -66,8 +66,12 @@ $(document).ready(function() {
         mString += " | <a class='display_detail'> <span class='glyphicon glyphicon-info-sign' data-toggle='tooltip' title='Thông tin chi tiết bác sĩ'></span></a>";
         return mString;
       }
-    }]
-
+    }, {
+        "targets": 6,
+        "render": function(data, type, row) {
+          return moment(data).format('DD/MM/YYYY');
+        }
+      }]
   });
 
   //xử lý show textbox
@@ -231,7 +235,12 @@ $(document).ready(function() {
           mClass = "glyphicon glyphicon-eye-close";
         return "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
       }
-    }]
+    }, {
+        "targets": 6,
+        "render": function(data, type, row) {
+          return moment(data).format('DD/MM/YYYY');
+        }
+      }]
   });
 
   // xử lý button submit
@@ -307,7 +316,8 @@ $(document).ready(function() {
         var valueReturn = "";
         valueReturn += "<a href='#'><span class='glyphicon glyphicon-user table_icon' data-toggle='tooltip' title='Không duyệt bởi: " + MnguoiDuyet + "'></span></a>";
         valueReturn += " | <a href='#'><span class='glyphicon glyphicon-info-sign table_icon' data-toggle='tooltip' title='Lý do: " + mLyDo + "'></span></a>";
-        valueReturn += " | " + row[7];
+        valueReturn += " | " + moment(row[7]).format('DD/MM/YYYY');
+        debugger
         return valueReturn;
       }
     }, {
@@ -403,7 +413,12 @@ $(document).ready(function() {
           mClass = "glyphicon glyphicon-eye-close";
         return "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
       }
-    }]
+    }, {
+        "targets": 6,
+        "render": function(data, type, row) {
+          return moment(data).format('DD/MM/YYYY');
+        }
+      }]
   });
 
 

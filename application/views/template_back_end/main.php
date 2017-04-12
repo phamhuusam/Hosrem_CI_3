@@ -9,6 +9,7 @@
 	<link href="<?php echo base_url() ?>public/admin/css/css.css" rel="stylesheet">
 	<script src="<?php echo base_url() ?>public/admin/js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo base_url() ?>public/admin/js/js_Parent.js"></script>
+	<script src="<?php echo base_url() ?>public/admin/js/moment.js"></script>
 	<script src="<?php echo base_url() ?>public/js/tinymce/tinymce.min.js  "></script>
 	<script>
 		tinymce.init({
@@ -21,7 +22,7 @@
 		});
 		var base_url_original = "<?php echo base_url() ?>";
 	</script>
-	  
+
 
 	<style type="text/css">
 		body{
