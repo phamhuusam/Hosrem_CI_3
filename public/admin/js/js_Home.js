@@ -5,10 +5,16 @@ var _global = {
 
 
 $(document).ready(function() {
-
   $('#btn_SaveInfo').click(function(){
-      alert("đfdf");
-      onUpdateFullRecord();
+      var mData  =  _global._data;
+      mData = onGetValueRecord(mData);
+      call_OnUpdateRecord_2(mData, function(flag){
+          if(flag) {
+            if (confirm('Bạn đã cập nhật thành công, bạn có muốn reload lại page?')) {
+                window.location.reload();
+            }
+          }
+      });
   });
 
 
@@ -516,12 +522,14 @@ function onShowFormDetail(idBacSi) {
 
 
 // function call update
-function call_OnUpdateRecord_2(mData) {
+function call_OnUpdateRecord_2(mData, callback) {
   onUpdateRecord_2(mData, function(result, flag) {
     if (flag) {
       //alert_CapNhatThanhCong();
+      callback(true);
     } else {
       alert_CapNhatThatBai();
+      callback(false);
     }
   }, _global);
 }
@@ -556,12 +564,6 @@ function RadionButtonSelectedValueSet(name, SelectdValue) {
     $('input[name="' + name+ '"][value="' + SelectdValue + '"]').prop('checked', true);
 }
 
-
-function onUpdateFullRecord() {
-  var mData  =  _global._data;
-  mData = onGetValueRecord(mData);
-  call_OnUpdateRecord_2(mData);
-}
 
 function onGetValueRecord(mData) {
   mData.CauChamNgon = $('#CauChamNgon').val();
