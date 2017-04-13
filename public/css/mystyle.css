@@ -300,21 +300,24 @@ span.title{
 	padding:5px;
 	bottom:0px;
 	border-bottom:2px solid #ccc;
+	background-color: rgba(18, 145, 222, 0.8);
+
 }
 span.title:hover{
 	background:#0260ca;
+	background-color: rgba(2, 96, 202, 0.8);
 }
 .tenbs{
-	top:10px;
-	left:50px;
-	font-size:14px;
+	top:5px;
+	left:10px;
+	font-size:18px;
 	color:#fff;
-
+	text-transform: uppercase;
 	
 }
 .noicongtac{
-	bottom:10px;
-	left:70px;
+	bottom:5px;
+	left:10px;
 	font-size:14px !important;
 	color:#fff;
 
@@ -602,4 +605,7 @@ span.error{
 
 .boderRed {
   border-color: red
+}
+.searchbtn{
+	border-radius:5px;
 }

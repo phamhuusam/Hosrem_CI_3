@@ -2,9 +2,8 @@
 		<div class="db-header">
 			<div class="search-box">
 				<form action="Search" method="post">
-					<input class="keys typeahead" type="text" name="keys" autocomplete="off" spellcheck="false" placeholder="Tìm kiếm bác sĩ"><br />
-
-						<input type="submit" name="submit" value="submit"> </input>
+					<input class="keys typeahead" type="text" name="keys" autocomplete="off" spellcheck="false" placeholder="Tìm kiếm bác sĩ">
+					<input type="submit" class="searchbtn" name="submit" value="Tìm"> <br />
 					<input class="button" type="button" onclick="location.href='<?php echo base_url() ?>danhba/dangky';" value="Đăng ký danh bạ bác sĩ" name="search">
 				</form>
 			</div>
@@ -13,7 +12,7 @@
 		<div id="ca-container" class="ca-container">
 			<div class="ca-wrapper carousel">
 			<?php
-$i = 1;
+$i = 0;
 foreach ($danhsach_Bacsi as $bacsi) {
 	$i++;
 	echo "<div class='bacsi-box ca-item ca-item-$i'>";
