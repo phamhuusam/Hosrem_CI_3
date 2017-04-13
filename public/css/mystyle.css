@@ -609,3 +609,45 @@ span.error{
 .searchbtn{
 	border-radius:5px;
 }
+
+div.top-info{
+	margin-top:15px;
+}
+.img-box{
+	padding:10px;
+	background:#24a2ee;
+	color:#0c3e7d;
+	text-align:center;
+}
+h2.mTen{
+margin:0 !important;
+padding:0;
+text-transform:uppercase;
+color:#1492df;
+font-size:20px;
+font-weight:bold;
+}
+h3.mDonvicongtac{
+margin-top:10px !important;
+padding:0;
+color:#1492df;
+font-size:18px;
+text-transform:uppercase;
+}
+img.mHinhAnh{
+	border:5px solid #fff;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    margin-bottom:5px;
+    max-width:300px;
+}
+div.line {
+  border-top: 1px solid #1492df; 
+  height:2px;
+  width:100%;
+  margin-left:15px;
+  margin-bottom:15px;
+}
+.label_title{
+	color:#1492df;
+	text-transform: uppercase;
+}
