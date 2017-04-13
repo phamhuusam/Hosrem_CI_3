@@ -4,19 +4,18 @@ class MBacSi extends CI_Model {
 		return $this->db->count_all('bacsi');
 	}
 
-
 	public function listall_Danhba() {
 		$this->db->flush_cache();
 		$this->db->select('bacsi.*');
 		$this->db->from('bacsi');
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
-		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');		
+		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
 		$this->db->where('tinhtrang.id', 1);
-		$this->db->where('Display', 1);		
+		$this->db->where('Display', 1);
 		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();
-	}	
+	}
 
 	public function listall() {
 		$this->db->flush_cache();
@@ -42,7 +41,7 @@ class MBacSi extends CI_Model {
 		$this->db->where('FlagHienTai', 1); // chỉ lấy quá trình hiện tại (không lấy quá trình ở quá khứ)
 		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
-		//var_dump($query->result_array());		
+		//var_dump($query->result_array());
 		return $query->result_array();
 	}
 
@@ -98,20 +97,20 @@ class MBacSi extends CI_Model {
 		//sau đó insert record mới vào.  với cái cờ check là hiện tại
 		$this->db->insert('chitietbacsi_tinhtrang', $data);
 	}
-	public function InsertDanhba($data){
-		$this->db->insert('bacsi',$data);
-		$id=$this->db->insert_id();		
+	public function InsertDanhba($data) {
+		$this->db->insert('bacsi', $data);
+		$id = $this->db->insert_id();
 		$data_2 = array(
 			'FlagHienTai' => 1,
-			'bacsi'=>$id,
-			'NgayCapNhatTinhTrang'=>date("Y-m-d"),
-			'TinhTrang'=>2,
-			'NguoiDuyet'=>1
+			'bacsi' => $id,
+			'NgayCapNhatTinhTrang' => date("Y-m-d"),
+			'TinhTrang' => 2,
+			'NguoiDuyet' => 1,
 		);
-		$this->db->insert('chitietbacsi_tinhtrang', $data_2);		
+		$this->db->insert('chitietbacsi_tinhtrang', $data_2);
 	}
 
-	public function UpdateBacSi($data){
+	public function UpdateBacSi($data) {
 
 		$this->db->where("Id", $data["Id"]);
 		$this->db->update('bacsi', $data);
@@ -126,6 +125,20 @@ class MBacSi extends CI_Model {
 		$this->db->where('bacsi.id', $Id);
 		$query = $this->db->get();
 		return $query->row();
+	}
+
+	public function listall_Danhba_by_key($key) {
+		$this->db->flush_cache();
+		$this->db->select('bacsi.*');
+		$this->db->from('bacsi');
+		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
+		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');
+		$this->db->where('tinhtrang.id', 1);
+		$this->db->where('Display', 1);
+		$this->db->like('Ten', $key);
+		$this->db->order_by('bacsi.id', 'desc');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 }
 ?>

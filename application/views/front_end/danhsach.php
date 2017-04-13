@@ -1,29 +1,31 @@
 	<div id="danhbawrapper">
 		<div class="db-header">
 			<div class="search-box">
-				<form action="" method="post">
-					<input class="keys typeahead" type="text" name="typeahead" autocomplete="off" spellcheck="false" placeholder="Tìm kiếm bác sĩ"><br />
+				<form action="Search" method="post">
+					<input class="keys typeahead" type="text" name="keys" autocomplete="off" spellcheck="false" placeholder="Tìm kiếm bác sĩ"><br />
+
+						<input type="submit" name="submit" value="submit"> </input>
 					<input class="button" type="button" onclick="location.href='<?php echo base_url() ?>danhba/dangky';" value="Đăng ký danh bạ bác sĩ" name="search">
 				</form>
 			</div>
 		</div>
 		<div class="clear"></div>
 		<div id="ca-container" class="ca-container">
-			<div class="ca-wrapper carousel">	
+			<div class="ca-wrapper carousel">
 			<?php
-			$i=1;
-			foreach ($danhsach_Bacsi as $bacsi) {
-				$i++;
-				echo "<div class='bacsi-box ca-item ca-item-$i'>";
-				echo "<div class='ca-item-main'>";
-				echo '<img src="'.base_url().'public/images/hinh_bacsi/'.$bacsi['HinhAnh'].'">';
-				echo "<span class='title'>";
-				echo "<h2 class='tenbs'>".$bacsi['Ten']."</strong></h2>";
-				echo "<h3 class='noicongtac'>".$bacsi['DonViCongTac']."</h3>";
-				echo "<span class='muiten'><a href='#'><img src='".base_url()."public/images/arrow.png'></a></span></span>";
-				echo "</div></div>";
-			}
-			?>			
+$i = 1;
+foreach ($danhsach_Bacsi as $bacsi) {
+	$i++;
+	echo "<div class='bacsi-box ca-item ca-item-$i'>";
+	echo "<div class='ca-item-main'>";
+	echo '<img src="' . base_url() . 'public/images/hinh_bacsi/' . $bacsi['HinhAnh'] . '">';
+	echo "<span class='title'>";
+	echo "<h2 class='tenbs'>" . $bacsi['Ten'] . "</strong></h2>";
+	echo "<h3 class='noicongtac'>" . $bacsi['DonViCongTac'] . "</h3>";
+	echo "<span class='muiten'><a href='#'><img src='" . base_url() . "public/images/arrow.png'></a></span></span>";
+	echo "</div></div>";
+}
+?>
 			</div>
 		</div>
 	</div>

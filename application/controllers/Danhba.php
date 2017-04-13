@@ -18,7 +18,7 @@ class Danhba extends CI_Controller {
 	public function dangky() {
 		$this->load->helper('form');
 		$this->load->library("form_validation");
-		$default_order=0;
+		$default_order = 0;
 		if ($this->input->post("submit")) {
 			//$this->form_validation->set_rules('hoten', 'Họ và tên', 'required');
 			//$this->form_validation->set_message('required', '%s không được để trống.');
@@ -41,19 +41,19 @@ class Danhba extends CI_Controller {
 				"Ten" => $this->input->post("hoten"),
 				"DienThoai" => $this->input->post("dt"),
 				"Email" => $this->input->post("email"),
-				"Facebook"=> $this->input->post("facebook"),
+				"Facebook" => $this->input->post("facebook"),
 				"DonViCongTac" => $this->input->post("donvicongtac"),
-				"Tinh"=> $this->input->post("TinhThanh"),
-				"NamSinh"=>$this->input->post("namsinh"),
-				"GioiTinh"=>$this->input->post("gioitinh"),
-				"ShowPrivateInfo"=>$this->input->post("showhide"),				
+				"Tinh" => $this->input->post("TinhThanh"),
+				"NamSinh" => $this->input->post("namsinh"),
+				"GioiTinh" => $this->input->post("gioitinh"),
+				"ShowPrivateInfo" => $this->input->post("showhide"),
 				"QuaTrinhHocTapVaCongTac" => $this->input->post("quatrinhhoctap"),
 				"KinhNghiemCongTac" => $this->input->post("kinhnghiemcongtac"),
 				"BaiVietChuyenNganh" => $this->input->post("baivietchuyennganh"),
 				"CongTacBaoCao" => $this->input->post("congtacbaocao"),
 				"NghienCuuNoiBat" => $this->input->post("nghiencuunoibat"),
 				"HinhAnh" => $this->input->post("txtImage"),
-				"Display" => 1
+				"Display" => 1,
 			);
 			$this->MBacSi->InsertDanhba($data);
 			redirect("danhba/success#");
@@ -89,9 +89,9 @@ class Danhba extends CI_Controller {
 		echo $imageName;
 	}
 	public function Search() {
-	    $key=$_GET['key'];
-	    echo $key;
-	    $array = array();
+		$key = $_POST['keys'];
+		$data['danhsach_Bacsi'] = $this->MBacSi->listall_Danhba_by_key($key);
+		$this->template_front_end->view("front_end/danhsach", $data);
 
-	}	
+	}
 }
