@@ -12,19 +12,19 @@
 		<div id="ca-container" class="ca-container">
 			<div class="ca-wrapper carousel">
 			<?php
-$i = 0;
-foreach ($danhsach_Bacsi as $bacsi) {
-	$i++;
-	echo "<div class='bacsi-box ca-item ca-item-$i'>";
-	echo "<div class='ca-item-main'>";
-	echo '<img src="' . base_url() . 'public/images/hinh_bacsi/' . $bacsi['HinhAnh'] . '">';
-	echo "<span class='title'>";
-	echo "<h2 class='tenbs'>" . $bacsi['Ten'] . "</strong></h2>";
-	echo "<h3 class='noicongtac'>" . $bacsi['DonViCongTac'] . "</h3>";
-	echo "<span class='muiten'><a href='#'><img src='" . base_url() . "public/images/arrow.png'></a></span></span>";
-	echo "</div></div>";
-}
-?>
+			$i = 0;
+			foreach ($danhsach_Bacsi as $bacsi) {
+				$i++;
+				echo "<div class='bacsi-box ca-item ca-item-$i'>";
+				echo "<div class='ca-item-main'>";
+				echo '<img src="' . base_url() . 'public/images/hinh_bacsi/' . $bacsi['HinhAnh'] . '">';
+				echo "<span class='title'>";
+				echo "<h2 class='tenbs'>" . $bacsi['Ten'] . "</strong></h2>";
+				echo "<h3 class='noicongtac'>" . $bacsi['DonViCongTac'] . "</h3>";
+				echo "<span class='muiten'><a href='chitietbacsi/".$bacsi['Id']."''><img src='" . base_url() . "public/images/arrow.png'></a></span></span>";
+				echo "</div></div>";
+			}
+			?>
 			</div>
 		</div>
 	</div>
