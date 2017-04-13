@@ -2,7 +2,7 @@
 		<div class="db-header">
 			<div class="search-box">
 				<form action="" method="post">
-					<input class="keys" type="text" name="keys" placeholder="Tìm kiếm bác sĩ"><br />
+					<input class="keys typeahead" type="text" name="typeahead" autocomplete="off" spellcheck="false" placeholder="Tìm kiếm bác sĩ"><br />
 					<input class="button" type="button" onclick="location.href='<?php echo base_url() ?>danhba/dangky';" value="Đăng ký danh bạ bác sĩ" name="search">
 				</form>
 			</div>

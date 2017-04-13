@@ -88,4 +88,10 @@ class Danhba extends CI_Controller {
 		file_put_contents(dirname(__DIR__) . '/../public/images/hinh_bacsi/' . $imageName, $data);
 		echo $imageName;
 	}
+	public function Search() {
+	    $key=$_GET['key'];
+	    echo $key;
+	    $array = array();
+
+	}	
 }
