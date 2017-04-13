@@ -129,7 +129,7 @@ $(document).ready(function() {
 		$('#mCauChamNgon').html($('input[name="cauchamngon"]').val());
 		$('#mTen').html($('input[name="hoten"]').val());
 		$('#mNamSinh').html($('input[name="namsinh"]').val());
-		$('#mGioiTinh').html($('input[name="nam"]:checked').val());
+		$('#mGioiTinh').html($('input[name="gioitinh"]:checked').val());
 		$('#mDonViCongTac').html($('input[name="donvicongtac"]').val());
 		$('#mTinh').html($('select[name="TinhThanh"]').find('option:selected').text());
 		$('#mDienThoai').html($('input[name="dt"]').val());
