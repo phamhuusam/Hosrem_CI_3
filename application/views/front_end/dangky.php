@@ -11,7 +11,7 @@
 				<!--<a class="btn-sm btn-success upload-result" style="float: left">Upload</a>-->
 				<img class="xoay" title="xoay ảnh" height="25px" src="<?php echo base_url() ?>/public/images/rotate.png" />
 				<br/>
-				<input name="userImage" type="file" class="inputFile"/>
+				<input name="userImage" type="file" class="inputFile" style="display: none" />
 			</div>
 			<div class="cauchamngon">
 				<label class="lbl_danhba">Câu châm ngôn yêu thích</label><br />
@@ -131,7 +131,7 @@ $(document).ready(function() {
 		$('#mNamSinh').html($('input[name="namsinh"]').val());
 		$('#mGioiTinh').html($('input[name="nam"]:checked').val());
 		$('#mDonViCongTac').html($('input[name="donvicongtac"]').val());
-		$('#mTinh').html($('input[name="TinhThanh"]').val());
+		$('#mTinh').html($('select[name="TinhThanh"]').find('option:selected').text());
 		$('#mDienThoai').html($('input[name="dt"]').val());
 		$('#mEmail').html($('input[name="email"]').val());
 		$('#mFacebook').html($('input[name="facebook"]').val());
