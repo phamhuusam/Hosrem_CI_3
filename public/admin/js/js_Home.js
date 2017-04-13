@@ -233,7 +233,9 @@ $(document).ready(function() {
         var mClass = "glyphicon glyphicon-eye-open";
         if (row[9] == 0)
           mClass = "glyphicon glyphicon-eye-close";
-        return "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
+        var mString = "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>";
+        mString += " | <a class='display_detail'> <span class='glyphicon glyphicon-info-sign' data-toggle='tooltip' title='Thông tin chi tiết bác sĩ'></span></a>";
+        return mString;
       }
     }, {
         "targets": 6,
@@ -274,6 +276,11 @@ $(document).ready(function() {
           }
         }
         break;
+      case 'display_detail':
+        var idBacSi = data[0];
+        onShowFormDetail(idBacSi);
+      break;
+
     }
   });
 
@@ -326,7 +333,9 @@ $(document).ready(function() {
         var mClass = "glyphicon glyphicon-eye-open";
         if (row[9] == 0)
           mClass = "glyphicon glyphicon-eye-close";
-        return "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
+        var mString=  "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>";
+        mString += " | <a class='display_detail'> <span class='glyphicon glyphicon-info-sign' data-toggle='tooltip' title='Thông tin chi tiết bác sĩ'></span></a>";
+        return mString;
       }
     }]
   });
@@ -359,6 +368,11 @@ $(document).ready(function() {
           }
         }
         break;
+
+      case 'display_detail':
+        var idBacSi = data[0];
+        onShowFormDetail(idBacSi);
+      break;
     }
   });
   $('[data-toggle="tooltip"]').tooltip();
@@ -411,7 +425,9 @@ $(document).ready(function() {
         var mClass = "glyphicon glyphicon-eye-open";
         if (row[9] == 0)
           mClass = "glyphicon glyphicon-eye-close";
-        return "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>"
+        var mString = "<a class='dislay_bacsi' href='#'><span class='" + mClass + "' data-toggle='tooltip' title='Ẩn / Hiện bác sĩ'></span></a>";
+        mString += " | <a class='display_detail'> <span class='glyphicon glyphicon-info-sign' data-toggle='tooltip' title='Thông tin chi tiết bác sĩ'></span></a>";
+        return mString;
       }
     }, {
         "targets": 6,
@@ -478,6 +494,12 @@ $(document).ready(function() {
           }
         }
         break;
+
+      case 'display_detail':
+        var idBacSi = data[0];
+        onShowFormDetail(idBacSi);
+      break;
+
     }
   });
   // xử lý button submit
