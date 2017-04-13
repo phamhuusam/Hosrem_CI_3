@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>public/css/mystyle.css">
 	<!--<script src="<?php echo base_url() ?>public/jquery-3.2.1.js"></script>-->
 	<script src="<?php echo base_url() ?>public/jquery-3.2.1.js"></script>
+	<script src="<?php echo base_url() ?>public/js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url() ?>public/js/croppie.js"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/croppie.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/slick/slick.css">
