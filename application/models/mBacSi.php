@@ -12,6 +12,7 @@ class MBacSi extends CI_Model {
 		$this->db->join('chitietbacsi_tinhtrang', 'bacsi.id = chitietbacsi_tinhtrang.bacsi');
 		$this->db->join('tinhtrang', 'tinhtrang.id = chitietbacsi_tinhtrang.tinhtrang');		
 		$this->db->where('tinhtrang.id', 1);
+		$this->db->where('Display', 1);		
 		$this->db->order_by('bacsi.id', 'desc');
 		$query = $this->db->get();
 		return $query->result_array();

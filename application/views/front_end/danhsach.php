@@ -1,142 +1,29 @@
-<?php
-foreach ($danhsach_Bacsi as $bacsi) {
-	echo $bacsi['Ten'] ."<br />";
-}
-?>
 	<div id="danhbawrapper">
 		<div class="db-header">
 			<div class="search-box">
 				<form action="" method="post">
 					<input class="keys" type="text" name="keys" placeholder="Tìm kiếm bác sĩ"><br />
-					<input class="button" type="submit" value="Đăng ký danh bạ bác sĩ" name="search">
+					<input class="button" type="button" onclick="location.href='<?php echo base_url() ?>danhba/dangky';" value="Đăng ký danh bạ bác sĩ" name="search">
 				</form>
 			</div>
 		</div>
 		<div class="clear"></div>
 		<div id="ca-container" class="ca-container">
-			<div class="ca-wrapper carousel">		
-					<div class="bacsi-box ca-item ca-item-1">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 1</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					
-					<div class="bacsi-box ca-item ca-item-2">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 2</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					<div class="bacsi-box ca-item ca-item-3">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 3</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					<div class="bacsi-box ca-item ca-item-4">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 4 </strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					<div class="bacsi-box ca-item ca-item-5">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 5</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>				
-					<div class="bacsi-box ca-item ca-item-6">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 6</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					<div class="bacsi-box ca-item ca-item-7">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 7</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					
-					<div class="bacsi-box ca-item ca-item-8">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 8</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					<div class="bacsi-box ca-item ca-item-9">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 9</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					<div class="bacsi-box ca-item ca-item-10">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 10</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>
-					<div class="bacsi-box ca-item ca-item-11">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 11</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>				
-					<div class="bacsi-box ca-item ca-item-12">
-						<div class="ca-item-main">
-							<img src="<?php echo base_url() ?>public/images/bacsi.jpg" />
-							<span class="title">
-								<h2 class="tenbs">GS. TS <strong>NGUYỄN TRẦN LÂM 12</strong></h2>
-								<h3 class="noicongtac">Bệnh viện CHỢ RẪY</h3>
-								<span class="muiten"><a href="#"><img src="<?php echo base_url() ?>public/images/arrow.png"></a></span>
-							</span>
-						</div>
-					</div>				
+			<div class="ca-wrapper carousel">	
+			<?php
+			$i=1;
+			foreach ($danhsach_Bacsi as $bacsi) {
+				$i++;
+				echo "<div class='bacsi-box ca-item ca-item-$i'>";
+				echo "<div class='ca-item-main'>";
+				echo '<img src="'.base_url().'public/images/hinh_bacsi/'.$bacsi['HinhAnh'].'">';
+				echo "<span class='title'>";
+				echo "<h2 class='tenbs'>".$bacsi['Ten']."</strong></h2>";
+				echo "<h3 class='noicongtac'>".$bacsi['DonViCongTac']."</h3>";
+				echo "<span class='muiten'><a href='#'><img src='".base_url()."public/images/arrow.png'></a></span></span>";
+				echo "</div></div>";
+			}
+			?>			
 			</div>
 		</div>
 	</div>

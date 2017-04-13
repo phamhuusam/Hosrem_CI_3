@@ -1,6 +1,6 @@
 
 	<div id="danhbawrapper">
-	<form id="form_DangKy" name="TestForm" action="" method="post" accept-charset="utf->
+	<form id="form_DangKy" name="TestForm" action="" method="post" accept-charset="utf-8">
 		<h2 class="dangky_title">ĐĂNG KÝ THÔNG TIN</h2>
 		<div class="left">
 			<label class="lbl_danhba">Upload hình đại diện</label><br />
@@ -35,8 +35,8 @@
 			<div class="div_gioitinh float-left">
 			<label class="lbl_danhba gioitinh">Giới tính</label><br />
 				<div class="gioitinh_wrapper">
-					<label for="nam" class="nam">Nam<input type="radio" id="one" name="nam" value="Nam" /></label>
-					<label for="nu" class="nu">Nữ<input type="radio" id="two" name="nam" value="Nữ" /></label>
+					<label for="nam" class="nam">Nam<input type="radio" id="one" name="gioitinh" value="Nam" /></label>
+					<label for="nu" class="nu">Nữ<input type="radio" id="two" name="gioitinh" value="Nữ" /></label>
 				</div>
 			</div>
 			<div class="div_donvicongtac float-left">
@@ -66,7 +66,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="showhide">
-				<input type="checkbox" id='sam_1' name="showhide" value="showhide" style="margin-right:5px">Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)<br>
+				<input type="checkbox" id='sam_1' name="showhide" value="1" style="margin-right:5px">Cho phép hiển thị các thông tin: Điện thoại, email và facebook (mặc định là không cho phép)<br>
 			</div>
 			<div class="clear"></div>
 			<div class="div_quatrinhhoctap">

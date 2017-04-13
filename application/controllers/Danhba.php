@@ -18,6 +18,7 @@ class Danhba extends CI_Controller {
 	public function dangky() {
 		$this->load->helper('form');
 		$this->load->library("form_validation");
+		$default_order=0;
 		if ($this->input->post("submit")) {
 			//$this->form_validation->set_rules('hoten', 'Họ và tên', 'required');
 			//$this->form_validation->set_message('required', '%s không được để trống.');
@@ -40,7 +41,12 @@ class Danhba extends CI_Controller {
 				"Ten" => $this->input->post("hoten"),
 				"DienThoai" => $this->input->post("dt"),
 				"Email" => $this->input->post("email"),
+				"Facebook"=> $this->input->post("facebook"),
 				"DonViCongTac" => $this->input->post("donvicongtac"),
+				"Tinh"=> $this->input->post("TinhThanh"),
+				"NamSinh"=>$this->input->post("namsinh"),
+				"GioiTinh"=>$this->input->post("gioitinh"),
+				"ShowPrivateInfo"=>$this->input->post("showhide"),				
 				"QuaTrinhHocTapVaCongTac" => $this->input->post("quatrinhhoctap"),
 				"KinhNghiemCongTac" => $this->input->post("kinhnghiemcongtac"),
 				"BaiVietChuyenNganh" => $this->input->post("baivietchuyennganh"),
